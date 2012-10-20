@@ -296,15 +296,19 @@
             </objects>
             <point key="canvasLocation" x="-706" y="486"/>
         </scene>
-        <!--View Controller - Live Tracking-->
+        <!--Live Tracking - Live Tracking-->
         <scene sceneID="9lT-2H-mab">
             <objects>
-                <viewController id="B1i-4X-FA5" sceneMemberID="viewController">
+                <viewController id="B1i-4X-FA5" customClass="LiveTracking" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UOo-s7-Bpd">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RTz-tn-tQ9"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RTz-tn-tQ9">
+                                <connections>
+                                    <outlet property="delegate" destination="B1i-4X-FA5" id="ZRp-zT-nzm"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -316,6 +320,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Live Tracking" image="73-radar.png" id="nNZ-Cq-mqW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="RTz-tn-tQ9" id="tV0-Gl-mDX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9un-IQ-kD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -535,67 +542,6 @@
         <image name="73-radar.png" width="27" height="27"/>
         <image name="93-thermometer.png" width="12" height="28"/>
     </resources>
-    <classes>
-        <class className="AirportSelector" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelector.h"/>
-            <relationships>
-                <relationship kind="action" name="doAirportSearch:"/>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AirportSelectorCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AirportSelectorResults" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorResults.h"/>
-            <relationships>
-                <relationship kind="action" name="doEdit:"/>
-                <relationship kind="outlet" name="btnEdit" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CheckFlightStatus" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatus.h"/>
-            <relationships>
-                <relationship kind="action" name="doCheckStatus:"/>
-                <relationship kind="outlet" name="btnCheckStatus" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CheckFlightStatusCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatusCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavoriteAirports" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteAirports.h"/>
-        </class>
-        <class className="FlightStatus" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatus.h"/>
-        </class>
-        <class className="FlightStatusResults" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatusResults.h"/>
-        </class>
-        <class className="MainMenu" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
-        </class>
-        <class className="MainMenuCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

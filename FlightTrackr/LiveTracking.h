@@ -1,0 +1,22 @@
+//
+//  LiveTracking.h
+//  FlightTrackr
+//
+//  Created by Scott Newman on 10/20/12.
+//  Copyright (c) 2012 Scott Newman. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "FlightStatusSingleton.h"
+
+@interface LiveTracking : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property CLLocationCoordinate2D currentCenter;
+@property int currentDistance;
+@property BOOL firstLaunch;
+
+@end

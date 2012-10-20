@@ -34,6 +34,8 @@
     self.filteredFlights = [[NSMutableArray alloc] init];
     self.dataReturned = NO;
     
+    [FlightStatusSingleton sharedInstance];
+    
 }
 
 - (void)loadTableData
@@ -187,6 +189,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
+    
     if(indexPath.section == 0)
     {
         
@@ -251,6 +255,7 @@
         
         if(indexPath.row == 0)
         {
+            singletonObj.originAirport = [[self.filteredFlights objectAtIndex:0] valueForKey:@"originName"];
             cell1.textLabel.text = @"Origin:";
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"originName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"originCity"]];
         }
@@ -293,6 +298,7 @@
         
         if(indexPath.row == 0)
         {
+            singletonObj.destinationAirport = [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationName"];
             cell1.textLabel.text = @"Destination:";
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationCity"]];
         }
