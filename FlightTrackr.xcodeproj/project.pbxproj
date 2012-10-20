@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E2AF40E161F692100CE7078 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2AF40D161F692100CE7078 /* 38-airplane.png */; };
+		0E2AF41216208F4100CE7078 /* AirportSelectorResultsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */; };
+		0E2AF4161620E2AE00CE7078 /* CheckFlightStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2AF4151620E2AE00CE7078 /* CheckFlightStatusSingleton.m */; };
+		0E2AF4991623B53400CE7078 /* MainMenuSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2AF4981623B53400CE7078 /* MainMenuSingleton.m */; };
+		0E2FA0D71617687F00BF81E9 /* CheckFlightStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FA0D61617687F00BF81E9 /* CheckFlightStatusCell.m */; };
+		0E2FA0D9161773A200BF81E9 /* Airlines.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E2FA0D8161773A200BF81E9 /* Airlines.plist */; };
+		0E712A161617D8470092AAA3 /* AirportSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E712A151617D8470092AAA3 /* AirportSelector.m */; };
+		0E712A191617D8680092AAA3 /* AirportSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E712A181617D8680092AAA3 /* AirportSelectorCell.m */; };
+		0E712A2E161901890092AAA3 /* AirportSelectorResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E712A2D161901890092AAA3 /* AirportSelectorResults.m */; };
+		0E712A35161A12480092AAA3 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E712A34161A12480092AAA3 /* Airports.plist */; };
+		0E96D02C1627554B00A34575 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96D02B1627554B00A34575 /* CoreData.framework */; };
+		0E96D0341627567E00A34575 /* FlightTrackr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */; };
+		0E96D037162764F400A34575 /* FavoriteAirports.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E96D036162764F400A34575 /* FavoriteAirports.m */; };
+		0EA18045162CA02F00B5481B /* FlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA18044162CA02F00B5481B /* FlightStatus.m */; };
+		0EA18050162CB28D00B5481B /* airtran_logo_sm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */; };
+		0EA18051162CB28D00B5481B /* american_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18048162CB28D00B5481B /* american_logo_sm.png */; };
+		0EA18052162CB28D00B5481B /* delta_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18049162CB28D00B5481B /* delta_logo_sm.png */; };
+		0EA18053162CB28D00B5481B /* easyjet_logo_sm.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804A162CB28D00B5481B /* easyjet_logo_sm.gif */; };
+		0EA18054162CB28D00B5481B /* expressjet_logo_sm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804B162CB28D00B5481B /* expressjet_logo_sm.jpg */; };
+		0EA18055162CB28D00B5481B /* jetblue_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804C162CB28D00B5481B /* jetblue_logo_sm.png */; };
+		0EA18056162CB28D00B5481B /* southwest_airlines_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804D162CB28D00B5481B /* southwest_airlines_logo.png */; };
+		0EA18057162CB28D00B5481B /* united_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804E162CB28D00B5481B /* united_logo_sm.png */; };
+		0EA18058162CB28D00B5481B /* usairways_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1804F162CB28D00B5481B /* usairways_logo_sm.png */; };
+		0EA1805B162CB70400B5481B /* FlightStatusResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1805A162CB70300B5481B /* FlightStatusResults.m */; };
+		0EA18061162DAA9B00B5481B /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18060162DAA9B00B5481B /* 07-map-marker.png */; };
+		0EA1806B162DEC9B00B5481B /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1806A162DEC9B00B5481B /* 73-radar.png */; };
+		0EA1806D162DF25900B5481B /* 93-thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1806C162DF25900B5481B /* 93-thermometer.png */; };
+		0EA1806F162DF32B00B5481B /* 37-suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1806E162DF32B00B5481B /* 37-suitcase.png */; };
+		0EAB5C0C16165400007F1F60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB5C0B16165400007F1F60 /* UIKit.framework */; };
+		0EAB5C0E16165400007F1F60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB5C0D16165400007F1F60 /* Foundation.framework */; };
+		0EAB5C1016165400007F1F60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB5C0F16165400007F1F60 /* CoreGraphics.framework */; };
+		0EAB5C1616165400007F1F60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB5C1416165400007F1F60 /* InfoPlist.strings */; };
+		0EAB5C1816165400007F1F60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C1716165400007F1F60 /* main.m */; };
+		0EAB5C1C16165400007F1F60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C1B16165400007F1F60 /* AppDelegate.m */; };
+		0EAB5C2516165400007F1F60 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB5C2316165400007F1F60 /* MainStoryboard.storyboard */; };
+		0EAB5C3216165470007F1F60 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB5C3116165470007F1F60 /* Default.png */; };
+		0EAB5C3416165477007F1F60 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB5C3316165477007F1F60 /* Default@2x.png */; };
+		0EAB5C37161654DF007F1F60 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C36161654DF007F1F60 /* MainMenu.m */; };
+		0EAB5C3A1616551A007F1F60 /* MainMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C391616551A007F1F60 /* MainMenuCell.m */; };
+		0EAE89491617480300CD246F /* CheckFlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE89481617480300CD246F /* CheckFlightStatus.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E2AF40D161F692100CE7078 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
+		0E2AF41016208F4000CE7078 /* AirportSelectorResultsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSelectorResultsObj.h; sourceTree = "<group>"; };
+		0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSelectorResultsObj.m; sourceTree = "<group>"; };
+		0E2AF4141620E2AE00CE7078 /* CheckFlightStatusSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatusSingleton.h; sourceTree = "<group>"; };
+		0E2AF4151620E2AE00CE7078 /* CheckFlightStatusSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatusSingleton.m; sourceTree = "<group>"; };
+		0E2AF4971623B53400CE7078 /* MainMenuSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuSingleton.h; sourceTree = "<group>"; };
+		0E2AF4981623B53400CE7078 /* MainMenuSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuSingleton.m; sourceTree = "<group>"; };
+		0E2FA0D51617687F00BF81E9 /* CheckFlightStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatusCell.h; sourceTree = "<group>"; };
+		0E2FA0D61617687F00BF81E9 /* CheckFlightStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatusCell.m; sourceTree = "<group>"; };
+		0E2FA0D8161773A200BF81E9 /* Airlines.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Airlines.plist; sourceTree = "<group>"; };
+		0E712A141617D8470092AAA3 /* AirportSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSelector.h; sourceTree = "<group>"; };
+		0E712A151617D8470092AAA3 /* AirportSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSelector.m; sourceTree = "<group>"; };
+		0E712A171617D8680092AAA3 /* AirportSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AirportSelectorCell.h; path = ../AirportSelectorCell.h; sourceTree = "<group>"; };
+		0E712A181617D8680092AAA3 /* AirportSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AirportSelectorCell.m; path = ../AirportSelectorCell.m; sourceTree = "<group>"; };
+		0E712A2C161901890092AAA3 /* AirportSelectorResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSelectorResults.h; sourceTree = "<group>"; };
+		0E712A2D161901890092AAA3 /* AirportSelectorResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSelectorResults.m; sourceTree = "<group>"; };
+		0E712A34161A12480092AAA3 /* Airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
+		0E96D02B1627554B00A34575 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0E96D0331627567E00A34575 /* FlightTrackr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightTrackr.xcdatamodel; sourceTree = "<group>"; };
+		0E96D035162764F400A34575 /* FavoriteAirports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteAirports.h; sourceTree = "<group>"; };
+		0E96D036162764F400A34575 /* FavoriteAirports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteAirports.m; sourceTree = "<group>"; };
+		0EA18043162CA02F00B5481B /* FlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatus.h; sourceTree = "<group>"; };
+		0EA18044162CA02F00B5481B /* FlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightStatus.m; sourceTree = "<group>"; };
+		0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airtran_logo_sm.jpg; sourceTree = "<group>"; };
+		0EA18048162CB28D00B5481B /* american_logo_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = american_logo_sm.png; sourceTree = "<group>"; };
+		0EA18049162CB28D00B5481B /* delta_logo_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delta_logo_sm.png; sourceTree = "<group>"; };
+		0EA1804A162CB28D00B5481B /* easyjet_logo_sm.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = easyjet_logo_sm.gif; sourceTree = "<group>"; };
+		0EA1804B162CB28D00B5481B /* expressjet_logo_sm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = expressjet_logo_sm.jpg; sourceTree = "<group>"; };
+		0EA1804C162CB28D00B5481B /* jetblue_logo_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jetblue_logo_sm.png; sourceTree = "<group>"; };
+		0EA1804D162CB28D00B5481B /* southwest_airlines_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = southwest_airlines_logo.png; sourceTree = "<group>"; };
+		0EA1804E162CB28D00B5481B /* united_logo_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = united_logo_sm.png; sourceTree = "<group>"; };
+		0EA1804F162CB28D00B5481B /* usairways_logo_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usairways_logo_sm.png; sourceTree = "<group>"; };
+		0EA18059162CB70300B5481B /* FlightStatusResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatusResults.h; sourceTree = "<group>"; };
+		0EA1805A162CB70300B5481B /* FlightStatusResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightStatusResults.m; sourceTree = "<group>"; };
+		0EA18060162DAA9B00B5481B /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
+		0EA1806A162DEC9B00B5481B /* 73-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "73-radar.png"; sourceTree = "<group>"; };
+		0EA1806C162DF25900B5481B /* 93-thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "93-thermometer.png"; sourceTree = "<group>"; };
+		0EA1806E162DF32B00B5481B /* 37-suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37-suitcase.png"; sourceTree = "<group>"; };
+		0EAB5C0716165400007F1F60 /* FlightTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EAB5C0B16165400007F1F60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0EAB5C0D16165400007F1F60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0EAB5C0F16165400007F1F60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0EAB5C1316165400007F1F60 /* FlightTrackr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlightTrackr-Info.plist"; sourceTree = "<group>"; };
+		0EAB5C1516165400007F1F60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0EAB5C1716165400007F1F60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0EAB5C1916165400007F1F60 /* FlightTrackr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlightTrackr-Prefix.pch"; sourceTree = "<group>"; };
+		0EAB5C1A16165400007F1F60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0EAB5C1B16165400007F1F60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0EAB5C2416165400007F1F60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		0EAB5C3116165470007F1F60 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		0EAB5C3316165477007F1F60 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		0EAB5C35161654DF007F1F60 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		0EAB5C36161654DF007F1F60 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		0EAB5C381616551A007F1F60 /* MainMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuCell.h; sourceTree = "<group>"; };
+		0EAB5C391616551A007F1F60 /* MainMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuCell.m; sourceTree = "<group>"; };
+		0EAE89471617480300CD246F /* CheckFlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatus.h; sourceTree = "<group>"; };
+		0EAE89481617480300CD246F /* CheckFlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatus.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EAB5C0416165400007F1F60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E96D02C1627554B00A34575 /* CoreData.framework in Frameworks */,
+				0EAB5C0C16165400007F1F60 /* UIKit.framework in Frameworks */,
+				0EAB5C0E16165400007F1F60 /* Foundation.framework in Frameworks */,
+				0EAB5C1016165400007F1F60 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E2AF41316208F9F00CE7078 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0E2AF4151620E2AE00CE7078 /* CheckFlightStatusSingleton.m */,
+				0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */,
+				0E2AF4981623B53400CE7078 /* MainMenuSingleton.m */,
+			);
+			name = "Custom Objects";
+			sourceTree = "<group>";
+		};
+		0E2BFF93162EFE4200F0D7B2 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C35161654DF007F1F60 /* MainMenu.h */,
+				0EAE89471617480300CD246F /* CheckFlightStatus.h */,
+				0EA18043162CA02F00B5481B /* FlightStatus.h */,
+				0EA18059162CB70300B5481B /* FlightStatusResults.h */,
+				0E712A141617D8470092AAA3 /* AirportSelector.h */,
+				0E712A2C161901890092AAA3 /* AirportSelectorResults.h */,
+				0E96D035162764F400A34575 /* FavoriteAirports.h */,
+				0EAB5C381616551A007F1F60 /* MainMenuCell.h */,
+				0E2FA0D51617687F00BF81E9 /* CheckFlightStatusCell.h */,
+				0E712A171617D8680092AAA3 /* AirportSelectorCell.h */,
+				0E2AF4141620E2AE00CE7078 /* CheckFlightStatusSingleton.h */,
+				0E2AF41016208F4000CE7078 /* AirportSelectorResultsObj.h */,
+				0E2AF4971623B53400CE7078 /* MainMenuSingleton.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		0EAB5BFC16165400007F1F60 = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C1116165400007F1F60 /* FlightTrackr */,
+				0EAB5C0A16165400007F1F60 /* Frameworks */,
+				0EAB5C0816165400007F1F60 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0EAB5C0816165400007F1F60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C0716165400007F1F60 /* FlightTrackr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EAB5C0A16165400007F1F60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E96D02B1627554B00A34575 /* CoreData.framework */,
+				0EAB5C0B16165400007F1F60 /* UIKit.framework */,
+				0EAB5C0D16165400007F1F60 /* Foundation.framework */,
+				0EAB5C0F16165400007F1F60 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0EAB5C1116165400007F1F60 /* FlightTrackr */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C1A16165400007F1F60 /* AppDelegate.h */,
+				0EAB5C1B16165400007F1F60 /* AppDelegate.m */,
+				0EAB5C2316165400007F1F60 /* MainStoryboard.storyboard */,
+				0E2AF41316208F9F00CE7078 /* Custom Objects */,
+				0EAE8953161752D500CD246F /* Controllers */,
+				0E2BFF93162EFE4200F0D7B2 /* Headers */,
+				0EAE8952161752AC00CD246F /* Custom Cells */,
+				0EAB5C2E16165434007F1F60 /* Assets */,
+				0EAB5C1216165400007F1F60 /* Supporting Files */,
+			);
+			path = FlightTrackr;
+			sourceTree = "<group>";
+		};
+		0EAB5C1216165400007F1F60 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E2FA0D8161773A200BF81E9 /* Airlines.plist */,
+				0E712A34161A12480092AAA3 /* Airports.plist */,
+				0EAB5C1316165400007F1F60 /* FlightTrackr-Info.plist */,
+				0EAB5C1416165400007F1F60 /* InfoPlist.strings */,
+				0EAB5C1716165400007F1F60 /* main.m */,
+				0EAB5C1916165400007F1F60 /* FlightTrackr-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EAB5C2E16165434007F1F60 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
+				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
+				0EA18060162DAA9B00B5481B /* 07-map-marker.png */,
+				0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */,
+				0EA18048162CB28D00B5481B /* american_logo_sm.png */,
+				0EA18049162CB28D00B5481B /* delta_logo_sm.png */,
+				0EA1804A162CB28D00B5481B /* easyjet_logo_sm.gif */,
+				0EA1806E162DF32B00B5481B /* 37-suitcase.png */,
+				0EA1804B162CB28D00B5481B /* expressjet_logo_sm.jpg */,
+				0EA1804C162CB28D00B5481B /* jetblue_logo_sm.png */,
+				0EA1804D162CB28D00B5481B /* southwest_airlines_logo.png */,
+				0EA1804E162CB28D00B5481B /* united_logo_sm.png */,
+				0EA1804F162CB28D00B5481B /* usairways_logo_sm.png */,
+				0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */,
+				0E2AF40D161F692100CE7078 /* 38-airplane.png */,
+				0EAB5C3316165477007F1F60 /* Default@2x.png */,
+				0EAB5C3116165470007F1F60 /* Default.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		0EAE8952161752AC00CD246F /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C391616551A007F1F60 /* MainMenuCell.m */,
+				0E2FA0D61617687F00BF81E9 /* CheckFlightStatusCell.m */,
+				0E712A181617D8680092AAA3 /* AirportSelectorCell.m */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		0EAE8953161752D500CD246F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB5C36161654DF007F1F60 /* MainMenu.m */,
+				0EAE89481617480300CD246F /* CheckFlightStatus.m */,
+				0EA18044162CA02F00B5481B /* FlightStatus.m */,
+				0EA1805A162CB70300B5481B /* FlightStatusResults.m */,
+				0E712A151617D8470092AAA3 /* AirportSelector.m */,
+				0E712A2D161901890092AAA3 /* AirportSelectorResults.m */,
+				0E96D036162764F400A34575 /* FavoriteAirports.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EAB5C0616165400007F1F60 /* FlightTrackr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EAB5C2B16165400007F1F60 /* Build configuration list for PBXNativeTarget "FlightTrackr" */;
+			buildPhases = (
+				0EAB5C0316165400007F1F60 /* Sources */,
+				0EAB5C0416165400007F1F60 /* Frameworks */,
+				0EAB5C0516165400007F1F60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightTrackr;
+			productName = FlightTrackr;
+			productReference = 0EAB5C0716165400007F1F60 /* FlightTrackr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EAB5BFE16165400007F1F60 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Scott Newman";
+			};
+			buildConfigurationList = 0EAB5C0116165400007F1F60 /* Build configuration list for PBXProject "FlightTrackr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0EAB5BFC16165400007F1F60;
+			productRefGroup = 0EAB5C0816165400007F1F60 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EAB5C0616165400007F1F60 /* FlightTrackr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EAB5C0516165400007F1F60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAB5C1616165400007F1F60 /* InfoPlist.strings in Resources */,
+				0EAB5C2516165400007F1F60 /* MainStoryboard.storyboard in Resources */,
+				0EAB5C3216165470007F1F60 /* Default.png in Resources */,
+				0EAB5C3416165477007F1F60 /* Default@2x.png in Resources */,
+				0E2FA0D9161773A200BF81E9 /* Airlines.plist in Resources */,
+				0E712A35161A12480092AAA3 /* Airports.plist in Resources */,
+				0E2AF40E161F692100CE7078 /* 38-airplane.png in Resources */,
+				0EA18050162CB28D00B5481B /* airtran_logo_sm.jpg in Resources */,
+				0EA18051162CB28D00B5481B /* american_logo_sm.png in Resources */,
+				0EA18052162CB28D00B5481B /* delta_logo_sm.png in Resources */,
+				0EA18053162CB28D00B5481B /* easyjet_logo_sm.gif in Resources */,
+				0EA18054162CB28D00B5481B /* expressjet_logo_sm.jpg in Resources */,
+				0EA18055162CB28D00B5481B /* jetblue_logo_sm.png in Resources */,
+				0EA18056162CB28D00B5481B /* southwest_airlines_logo.png in Resources */,
+				0EA18057162CB28D00B5481B /* united_logo_sm.png in Resources */,
+				0EA18058162CB28D00B5481B /* usairways_logo_sm.png in Resources */,
+				0EA18061162DAA9B00B5481B /* 07-map-marker.png in Resources */,
+				0EA1806B162DEC9B00B5481B /* 73-radar.png in Resources */,
+				0EA1806D162DF25900B5481B /* 93-thermometer.png in Resources */,
+				0EA1806F162DF32B00B5481B /* 37-suitcase.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EAB5C0316165400007F1F60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAB5C1816165400007F1F60 /* main.m in Sources */,
+				0EAB5C1C16165400007F1F60 /* AppDelegate.m in Sources */,
+				0EAB5C37161654DF007F1F60 /* MainMenu.m in Sources */,
+				0EAB5C3A1616551A007F1F60 /* MainMenuCell.m in Sources */,
+				0EAE89491617480300CD246F /* CheckFlightStatus.m in Sources */,
+				0E2FA0D71617687F00BF81E9 /* CheckFlightStatusCell.m in Sources */,
+				0E712A161617D8470092AAA3 /* AirportSelector.m in Sources */,
+				0E712A191617D8680092AAA3 /* AirportSelectorCell.m in Sources */,
+				0E712A2E161901890092AAA3 /* AirportSelectorResults.m in Sources */,
+				0E2AF41216208F4100CE7078 /* AirportSelectorResultsObj.m in Sources */,
+				0E2AF4161620E2AE00CE7078 /* CheckFlightStatusSingleton.m in Sources */,
+				0E2AF4991623B53400CE7078 /* MainMenuSingleton.m in Sources */,
+				0E96D0341627567E00A34575 /* FlightTrackr.xcdatamodeld in Sources */,
+				0E96D037162764F400A34575 /* FavoriteAirports.m in Sources */,
+				0EA18045162CA02F00B5481B /* FlightStatus.m in Sources */,
+				0EA1805B162CB70400B5481B /* FlightStatusResults.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0EAB5C1416165400007F1F60 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EAB5C1516165400007F1F60 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0EAB5C2316165400007F1F60 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EAB5C2416165400007F1F60 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EAB5C2916165400007F1F60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0EAB5C2A16165400007F1F60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EAB5C2C16165400007F1F60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightTrackr/FlightTrackr-Prefix.pch";
+				INFOPLIST_FILE = "FlightTrackr/FlightTrackr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0EAB5C2D16165400007F1F60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightTrackr/FlightTrackr-Prefix.pch";
+				INFOPLIST_FILE = "FlightTrackr/FlightTrackr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EAB5C0116165400007F1F60 /* Build configuration list for PBXProject "FlightTrackr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAB5C2916165400007F1F60 /* Debug */,
+				0EAB5C2A16165400007F1F60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EAB5C2B16165400007F1F60 /* Build configuration list for PBXNativeTarget "FlightTrackr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAB5C2C16165400007F1F60 /* Debug */,
+				0EAB5C2D16165400007F1F60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0E96D0331627567E00A34575 /* FlightTrackr.xcdatamodel */,
+			);
+			currentVersion = 0E96D0331627567E00A34575 /* FlightTrackr.xcdatamodel */;
+			path = FlightTrackr.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0EAB5BFE16165400007F1F60 /* Project object */;
+}

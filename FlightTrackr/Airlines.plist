@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>American Eagle</key>
+	<dict>
+		<key>Name</key>
+		<string>American Eagle</string>
+		<key>Identifier</key>
+		<string>EGF</string>
+	</dict>
+	<key>AirTran</key>
+	<dict>
+		<key>Name</key>
+		<string>AirTran</string>
+		<key>Identifier</key>
+		<string>TRS</string>
+	</dict>
+	<key>JetBlue</key>
+	<dict>
+		<key>Name</key>
+		<string>JetBlue</string>
+		<key>Identifier</key>
+		<string>JBU</string>
+	</dict>
+	<key>easyJet</key>
+	<dict>
+		<key>Name</key>
+		<string>easyJet</string>
+		<key>Identifier</key>
+		<string>EZY</string>
+	</dict>
+	<key>ExpressJet</key>
+	<dict>
+		<key>Name</key>
+		<string>ExpressJet</string>
+		<key>Identifier</key>
+		<string>ASQ</string>
+	</dict>
+	<key>US Airways</key>
+	<dict>
+		<key>Name</key>
+		<string>US Airways</string>
+		<key>Identifier</key>
+		<string>AWE</string>
+	</dict>
+	<key>Delta</key>
+	<dict>
+		<key>Name</key>
+		<string>Delta</string>
+		<key>Identifier</key>
+		<string>DAL</string>
+	</dict>
+	<key>American Airlines</key>
+	<dict>
+		<key>Name</key>
+		<string>American Airlines</string>
+		<key>Identifier</key>
+		<string>AAL</string>
+	</dict>
+	<key>United</key>
+	<dict>
+		<key>Name</key>
+		<string>United</string>
+		<key>Identifier</key>
+		<string>UAL</string>
+	</dict>
+	<key>Southwest</key>
+	<dict>
+		<key>Name</key>
+		<string>Southwest</string>
+		<key>Identifier</key>
+		<string>SWA</string>
+	</dict>
+</dict>
+</plist>
