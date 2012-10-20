@@ -195,19 +195,21 @@
 {
     
     CheckFlightStatus *previousView = [[self.navigationController viewControllers] objectAtIndex:1];
+    NSIndexPath *selCellPath = self.tableView.indexPathForSelectedRow;
+    AirportSelectorResultsObj *airportObj = [[self.airports objectAtIndex:selCellPath.section] objectAtIndex:selCellPath.row];
     
     if([segue.identifier isEqualToString:@"segueCheckFlightStatus1"])
     {
         
-        UITableViewCell *selCell = [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
-        
         if([previousView.singletonObj.destOrOriginSelected isEqualToString:@"Origin"])
         {
-            previousView.singletonObj.selectedOriginAirport = selCell.textLabel.text;
+            previousView.singletonObj.selectedOriginIdent = airportObj.ident;
+            previousView.singletonObj.selectedOriginAirport = airportObj.name;
         }
         else
         {
-            previousView.singletonObj.selectedDestinationAirport = selCell.textLabel.text;
+            previousView.singletonObj.selectedDestinationIdent = airportObj.ident;
+            previousView.singletonObj.selectedDestinationAirport = airportObj.name;
         }
         
     }
