@@ -47,6 +47,11 @@
 		0EAB5C37161654DF007F1F60 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C36161654DF007F1F60 /* MainMenu.m */; };
 		0EAB5C3A1616551A007F1F60 /* MainMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C391616551A007F1F60 /* MainMenuCell.m */; };
 		0EAE89491617480300CD246F /* CheckFlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE89481617480300CD246F /* CheckFlightStatus.m */; };
+		920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09F11632503B00E7BF81 /* LGViewHUD.m */; };
+		920E09F91632505B00E7BF81 /* rounded-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F51632505B00E7BF81 /* rounded-checkmark.png */; };
+		920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */; };
+		920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F71632505B00E7BF81 /* rounded-fail.png */; };
+		920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F81632505B00E7BF81 /* rounded-fail@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +112,12 @@
 		0EAB5C391616551A007F1F60 /* MainMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuCell.m; sourceTree = "<group>"; };
 		0EAE89471617480300CD246F /* CheckFlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatus.h; sourceTree = "<group>"; };
 		0EAE89481617480300CD246F /* CheckFlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatus.m; sourceTree = "<group>"; };
+		920E09F11632503B00E7BF81 /* LGViewHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGViewHUD.m; sourceTree = "<group>"; };
+		920E09F41632504B00E7BF81 /* LGViewHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGViewHUD.h; sourceTree = "<group>"; };
+		920E09F51632505B00E7BF81 /* rounded-checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark.png"; sourceTree = "<group>"; };
+		920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark@2x.png"; sourceTree = "<group>"; };
+		920E09F71632505B00E7BF81 /* rounded-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail.png"; sourceTree = "<group>"; };
+		920E09F81632505B00E7BF81 /* rounded-fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +148,7 @@
 		0E2BFF93162EFE4200F0D7B2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				920E09F41632504B00E7BF81 /* LGViewHUD.h */,
 				0EAB5C35161654DF007F1F60 /* MainMenu.h */,
 				0EAE89471617480300CD246F /* CheckFlightStatus.h */,
 				0EA18043162CA02F00B5481B /* FlightStatus.h */,
@@ -214,6 +226,10 @@
 		0EAB5C2E16165434007F1F60 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				920E09F51632505B00E7BF81 /* rounded-checkmark.png */,
+				920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */,
+				920E09F71632505B00E7BF81 /* rounded-fail.png */,
+				920E09F81632505B00E7BF81 /* rounded-fail@2x.png */,
 				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
 				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
 				0EA18060162DAA9B00B5481B /* 07-map-marker.png */,
@@ -255,6 +271,7 @@
 				0E712A151617D8470092AAA3 /* AirportSelector.m */,
 				0E712A2D161901890092AAA3 /* AirportSelectorResults.m */,
 				0E96D036162764F400A34575 /* FavoriteAirports.m */,
+				920E09F11632503B00E7BF81 /* LGViewHUD.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +347,10 @@
 				0EA1806B162DEC9B00B5481B /* 73-radar.png in Resources */,
 				0EA1806D162DF25900B5481B /* 93-thermometer.png in Resources */,
 				0EA1806F162DF32B00B5481B /* 37-suitcase.png in Resources */,
+				920E09F91632505B00E7BF81 /* rounded-checkmark.png in Resources */,
+				920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */,
+				920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */,
+				920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +377,7 @@
 				0E96D037162764F400A34575 /* FavoriteAirports.m in Sources */,
 				0EA18045162CA02F00B5481B /* FlightStatus.m in Sources */,
 				0EA1805B162CB70400B5481B /* FlightStatusResults.m in Sources */,
+				920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
