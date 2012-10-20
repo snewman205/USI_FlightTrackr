@@ -200,6 +200,7 @@
     
     if([segue.identifier isEqualToString:@"segueCheckFlightStatus1"])
     {
+        NSLog(@"testing new branch");
         
         if([previousView.singletonObj.destOrOriginSelected isEqualToString:@"Origin"])
         {
