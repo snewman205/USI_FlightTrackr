@@ -14,5 +14,8 @@
 @property (strong, nonatomic) NSArray *sectionHeaders;
 @property (strong, nonatomic) NSMutableArray *flightInfo;
 @property (strong, nonatomic) CheckFlightStatus *previousView;
+@property (strong, nonatomic) NSDate *roundedDate;
+@property (strong, nonatomic) NSMutableArray *filteredFlights;
+@property (nonatomic) BOOL dataReturned;
 
 @end

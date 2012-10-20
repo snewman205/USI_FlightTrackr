@@ -37,6 +37,8 @@
     
     NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.previousView.singletonObj.selectedDestinationIdent, self.previousView.singletonObj.selectedOriginIdent, self.previousView.singletonObj.selectedAirlineIdent2]];
     
+    NSLog(@"url - %@", jsonURL);
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     LGViewHUD *hud = [LGViewHUD defaultHUD];
     hud.activityIndicatorOn = YES;
@@ -117,6 +119,7 @@
     cell.detailTextLabel.numberOfLines = 2;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Departs %@\nOperated by %@", [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]], self.previousView.singletonObj.selectedAirlineName2];
     cell.imageView.image = [self getAirlineLogo:self.previousView.singletonObj.selectedAirlineName2];
+    
     return cell;
 }
 
@@ -124,8 +127,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.previousView.singletonObj.selectedFlightNo = [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3];
-    self.previousView.singletonObj.didSearchFlight = YES;
+    CheckFlightStatusSingleton *singletonObj = [CheckFlightStatusSingleton sharedInstance];
+    UITableViewCell *selCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    int extraLen = ([selCell.detailTextLabel.text length] == 45) ? 1 : 0;
+    [dateFormatter setDateFormat:@"MM/dd/yy - h:mm a"];
+    
+    singletonObj.selectedDateIndex = [dateFormatter dateFromString:[selCell.detailTextLabel.text substringWithRange:NSMakeRange(8, (18 + extraLen))]];
+    singletonObj.selectedFlightNo = [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3];
+    singletonObj.didSearchFlight = YES;
+    
     [self performSegueWithIdentifier:@"segueFlightStatusInfo" sender:self];
 }
 

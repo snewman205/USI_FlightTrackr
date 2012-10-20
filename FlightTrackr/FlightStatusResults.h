@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CheckFlightStatus.h"
 #import "LGViewHUD.h"
+#import "CheckFlightStatusSingleton.h"
 
 @interface FlightStatusResults : UITableViewController
 

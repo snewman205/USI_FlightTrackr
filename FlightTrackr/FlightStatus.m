@@ -31,8 +31,34 @@
 
     self.sectionHeaders = [NSArray arrayWithObjects:@"Status", @"", nil];
     self.previousView = [[self.navigationController viewControllers] objectAtIndex:1];
+    self.filteredFlights = [[NSMutableArray alloc] init];
+    self.dataReturned = NO;
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/FlightInfo?ident=%@%@&howMany=1", self.previousView.singletonObj.selectedAirlineIdent1, self.previousView.singletonObj.selectedFlightNo]];
+}
+
+- (void)loadTableData
+{
+    // get params from previous selections & force zero seconds for selected date & time
+    
+    NSString *selectedIdent;
+    NSString *sectionForParams;
+    
+    if([self.previousView.singletonObj.selectedAirlineIdent1 isEqualToString:@""])
+    {
+        sectionForParams = @"1";
+        selectedIdent = self.previousView.singletonObj.selectedAirlineIdent2;
+    }
+    else
+    {
+        sectionForParams = @"";
+        selectedIdent = self.previousView.singletonObj.selectedAirlineIdent1;
+    }
+    
+    NSDate *selectedDate = ([sectionForParams isEqualToString:@""]) ? self.previousView.singletonObj.selectedDateIndex1 : self.previousView.singletonObj.selectedDateIndex;
+    NSTimeInterval time = floor([selectedDate timeIntervalSinceReferenceDate] / 60.0) * 60.0;
+    self.roundedDate = [NSDate dateWithTimeIntervalSinceReferenceDate: time];
+    
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/FlightInfo?ident=%@%@", selectedIdent, self.previousView.singletonObj.selectedFlightNo]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -42,7 +68,17 @@
                        
                        [self performSelectorOnMainThread:@selector(dataRetreived:) withObject:data waitUntilDone:YES];
                    });
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.dataReturned = NO;
+    [self.filteredFlights removeAllObjects];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self loadTableData];
 }
 
 - (void)dataRetreived:(NSData*)dataResponse
@@ -53,10 +89,21 @@
     
     NSDictionary *allData = [jsonDict objectForKey:@"FlightInfoResult"];
     
-    NSArray *returnedFlightInfo = [allData objectForKey:@"flights"];
-    self.flightInfo = [returnedFlightInfo objectAtIndex:0];
+    NSArray *returnedFlights = [allData objectForKey:@"flights"];
     
+    for(int i = 0; i < [returnedFlights count]; i++)
+    {
+        NSDictionary *flightObj = [returnedFlights objectAtIndex:i];
+        
+        if([[NSString stringWithFormat:@"%@", [flightObj objectForKey:@"filed_departuretime"]] isEqualToString:[NSString stringWithFormat:@"%.0f", [self.roundedDate timeIntervalSince1970]]])
+        {
+            [self.filteredFlights addObject:flightObj];
+        }
+    }
+    
+    self.dataReturned = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.tableView reloadData];
     
 }
 
@@ -71,7 +118,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.sectionHeaders count];
+    if(self.dataReturned)
+    {
+        return [self.sectionHeaders count];
+    }
+    
+    return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -83,15 +135,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    switch(section)
+    if(self.dataReturned)
     {
-        case 0:
-            return 1;
-        break;
+        switch(section)
+        {
+            case 0:
+                return 1;
+            break;
         
-        case 1:
-            return 1;
-        break;
+            case 1:
+                return 2;
+            break;
+        }
     }
     
     return 0;
@@ -99,47 +154,70 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if(indexPath.section == 0)
     {
         
-            static NSString *CellIdentifier = @"Cell";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
-            // Configure the cell...
-            
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:25.0];
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:25.0];
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
+        
+        if(([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) && ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] == 0))
+        {
             cell.textLabel.text = @"En Route";
-        
-            return cell;
-        
+        }
+        else if(([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) && ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] > 0))
+        {
+            cell.textLabel.text = @"Arrived";
+        }
+        else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
+        {
+            cell.textLabel.text = @"Delayed";
+        }
+        else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] == 0)
+        {
+            cell.textLabel.text = @"Scheduled";
+        }
+            
+        return cell;
     }
     
-    else
+    else if(indexPath.section == 1)
     {
-        
-        static NSString *CellIdentifier = @"Cell1";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
-        switch(indexPath.section)
+    
+        static NSString *CellIdentifier1 = @"Cell1";
+        UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+            
+        if(indexPath.row == 0)
         {
-            case 1:
-                
-                switch(indexPath.row)
-                {
-                    case 0:
+        
+            double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue] + 3600;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    
+            [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
+                    
+            cell1.textLabel.text = @"Filed Departure:";
+            cell1.detailTextLabel.text = [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]];
                         
-                        cell.textLabel.text = @"Departing:";
-                        cell.detailTextLabel.text = @"soon";
-                        
-                    break;
-                }
-                
-            break;
         }
-        
-        return cell;
-        
+    
+        else if(indexPath.row == 1)
+        {
+            
+            double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] + 3600;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            
+            [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
+                
+            cell1.textLabel.text = @"Actual Departure:";
+            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) ? [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]] : @"Unavailable";
+                
+        }
+            
+        return cell1;
+            
     }
     
     return NULL;

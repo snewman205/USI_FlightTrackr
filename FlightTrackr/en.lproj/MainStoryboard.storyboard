@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="DDH-Up-6bQ" customClass="CheckFlightStatus" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="DNx-xU-ARZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jaU-9y-Cea">
@@ -102,7 +102,7 @@
             <objects>
                 <tableViewController id="jlM-pq-TYO" customClass="AirportSelector" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bUO-mH-6ZW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VPa-YT-dQq">
@@ -249,7 +249,7 @@
             <objects>
                 <tableViewController id="lDs-do-ktJ" customClass="FlightStatus" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="gfL-oB-ezp">
-                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -262,11 +262,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell1" textLabel="7kj-XR-cN1" detailTextLabel="BKs-na-2cH" style="IBUITableViewCellStyleValue1" id="wbp-7l-Re0">
-                                <rect key="frame" x="0.0" y="91" width="320" height="45"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell1" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell1" textLabel="7kj-XR-cN1" detailTextLabel="BKs-na-2cH" rowHeight="69" style="IBUITableViewCellStyleValue1" id="wbp-7l-Re0">
+                                <rect key="frame" x="0.0" y="91" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="300" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kj-XR-cN1">
@@ -274,7 +274,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKs-na-2cH">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="44" translatesAutoresizingMaskIntoConstraints="NO" id="BKs-na-2cH">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,7 +301,7 @@
             <objects>
                 <viewController id="B1i-4X-FA5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UOo-s7-Bpd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -317,7 +317,7 @@
             <objects>
                 <viewController id="pgD-DO-dTo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OmP-6k-iyb">
-                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -333,7 +333,7 @@
             <objects>
                 <viewController id="H5W-cj-Dzd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWf-UA-ECB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -371,7 +371,7 @@
             <objects>
                 <tableViewController id="QSC-Vn-OUW" customClass="AirportSelectorResults" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S2X-xc-D6l">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -424,7 +424,7 @@
             <objects>
                 <tableViewController id="G6i-dt-GUq" customClass="FlightStatusResults" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="4SO-cf-2DG">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -469,7 +469,7 @@
             <objects>
                 <tableViewController id="IMT-Gx-ndx" customClass="FavoriteAirports" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="2" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PFs-Qt-Wcw">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -526,67 +526,6 @@
         <image name="73-radar.png" width="27" height="27"/>
         <image name="93-thermometer.png" width="12" height="28"/>
     </resources>
-    <classes>
-        <class className="AirportSelector" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelector.h"/>
-            <relationships>
-                <relationship kind="action" name="doAirportSearch:"/>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AirportSelectorCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AirportSelectorResults" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorResults.h"/>
-            <relationships>
-                <relationship kind="action" name="doEdit:"/>
-                <relationship kind="outlet" name="btnEdit" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CheckFlightStatus" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatus.h"/>
-            <relationships>
-                <relationship kind="action" name="doCheckStatus:"/>
-                <relationship kind="outlet" name="btnCheckStatus" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CheckFlightStatusCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatusCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavoriteAirports" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteAirports.h"/>
-        </class>
-        <class className="FlightStatus" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatus.h"/>
-        </class>
-        <class className="FlightStatusResults" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatusResults.h"/>
-        </class>
-        <class className="MainMenu" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
-        </class>
-        <class className="MainMenuCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -594,6 +533,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="eCY-Dq-Pfj"/>
-        <segue reference="JFX-e4-Bmq"/>
+        <segue reference="VFy-9A-xk5"/>
     </inferredMetricsTieBreakers>
 </document>
