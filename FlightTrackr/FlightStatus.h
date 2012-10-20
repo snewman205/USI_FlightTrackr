@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CheckFlightStatus.h"
+#import "LGViewHUD.h"
 
 @interface FlightStatus : UITableViewController
 
@@ -16,6 +17,8 @@
 @property (strong, nonatomic) CheckFlightStatus *previousView;
 @property (strong, nonatomic) NSDate *roundedDate;
 @property (strong, nonatomic) NSMutableArray *filteredFlights;
+@property (strong, nonatomic) NSString *aircraftMfg;
+@property (strong, nonatomic) NSString *aircraftType;
 @property (nonatomic) BOOL dataReturned;
 
 @end

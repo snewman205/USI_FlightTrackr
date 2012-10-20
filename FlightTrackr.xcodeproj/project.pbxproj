@@ -52,6 +52,7 @@
 		920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */; };
 		920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F71632505B00E7BF81 /* rounded-fail.png */; };
 		920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F81632505B00E7BF81 /* rounded-fail@2x.png */; };
+		929D482B16332035004E1D43 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 929D482A16332035004E1D43 /* 01-refresh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark@2x.png"; sourceTree = "<group>"; };
 		920E09F71632505B00E7BF81 /* rounded-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail.png"; sourceTree = "<group>"; };
 		920E09F81632505B00E7BF81 /* rounded-fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail@2x.png"; sourceTree = "<group>"; };
+		929D482A16332035004E1D43 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */,
 				920E09F71632505B00E7BF81 /* rounded-fail.png */,
 				920E09F81632505B00E7BF81 /* rounded-fail@2x.png */,
+				929D482A16332035004E1D43 /* 01-refresh.png */,
 				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
 				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
 				0EA18060162DAA9B00B5481B /* 07-map-marker.png */,
@@ -351,6 +354,7 @@
 				920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */,
 				920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */,
 				920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */,
+				929D482B16332035004E1D43 /* 01-refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
