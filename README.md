@@ -1,4 +1,4 @@
-USI_FlightTrackr
+FlightTrackr
 ================
 
-FlightTrackr - Final project for USI
+Final project for Unbounded Solutions training.
