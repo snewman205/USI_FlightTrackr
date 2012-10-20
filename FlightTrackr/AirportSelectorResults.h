@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "CheckFlightStatus.h"
+#import "LGViewHUD.h"
 
 @interface AirportSelectorResults : UITableViewController <UIAlertViewDelegate>
 

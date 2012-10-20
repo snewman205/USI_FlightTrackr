@@ -38,6 +38,11 @@
     NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.previousView.singletonObj.selectedDestinationIdent, self.previousView.singletonObj.selectedOriginIdent, self.previousView.singletonObj.selectedAirlineIdent2]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    LGViewHUD *hud = [LGViewHUD defaultHUD];
+    hud.activityIndicatorOn = YES;
+    hud.topText = @"Searching";
+    hud.bottomText = @"Please wait...";
+    [hud showInView:self.view];
     
     dispatch_async(mainQueue, ^
                    {
@@ -71,6 +76,7 @@
     [self.tableView reloadData];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
     
 }
 

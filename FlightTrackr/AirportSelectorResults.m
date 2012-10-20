@@ -38,6 +38,12 @@
 
 - (void)loadTableData
 {
+    LGViewHUD *hud = [LGViewHUD defaultHUD];
+    hud.activityIndicatorOn = YES;
+    hud.topText = @"Searching";
+    hud.bottomText = @"Please wait...";
+    [hud showInView:self.view];
+    
     UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
     NSArray *tempArray = [[NSArray alloc] init];
     NSMutableArray *airportsTemp = [[NSMutableArray alloc] initWithCapacity:1];
@@ -151,6 +157,8 @@
     }
     
     [self.tableView reloadData];
+    
+    [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
     
 }
 
