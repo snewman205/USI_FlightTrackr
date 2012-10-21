@@ -52,6 +52,7 @@
 		920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */; };
 		920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F71632505B00E7BF81 /* rounded-fail.png */; };
 		920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F81632505B00E7BF81 /* rounded-fail@2x.png */; };
+		928D171116337D5900EA3491 /* CSMapRouteLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D171016337D5900EA3491 /* CSMapRouteLayerView.m */; };
 		929D482B16332035004E1D43 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 929D482A16332035004E1D43 /* 01-refresh.png */; };
 		929D483216333ECB004E1D43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483116333ECB004E1D43 /* CoreLocation.framework */; };
 		929D483416333ED2004E1D43 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483316333ED1004E1D43 /* MapKit.framework */; };
@@ -123,6 +124,8 @@
 		920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark@2x.png"; sourceTree = "<group>"; };
 		920E09F71632505B00E7BF81 /* rounded-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail.png"; sourceTree = "<group>"; };
 		920E09F81632505B00E7BF81 /* rounded-fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail@2x.png"; sourceTree = "<group>"; };
+		928D171016337D5900EA3491 /* CSMapRouteLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMapRouteLayerView.m; sourceTree = "<group>"; };
+		928D171316337D6C00EA3491 /* CSMapRouteLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSMapRouteLayerView.h; sourceTree = "<group>"; };
 		929D482A16332035004E1D43 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		929D483116333ECB004E1D43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		929D483316333ED1004E1D43 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				929D48381633432D004E1D43 /* FlightStatusSingleton.h */,
+				928D171316337D6C00EA3491 /* CSMapRouteLayerView.h */,
 				920E09F41632504B00E7BF81 /* LGViewHUD.h */,
 				0EAB5C35161654DF007F1F60 /* MainMenu.h */,
 				0EAE89471617480300CD246F /* CheckFlightStatus.h */,
@@ -286,6 +290,7 @@
 			children = (
 				0EAB5C36161654DF007F1F60 /* MainMenu.m */,
 				0EAE89481617480300CD246F /* CheckFlightStatus.m */,
+				928D171016337D5900EA3491 /* CSMapRouteLayerView.m */,
 				0EA18044162CA02F00B5481B /* FlightStatus.m */,
 				0EA1805A162CB70300B5481B /* FlightStatusResults.m */,
 				0E712A151617D8470092AAA3 /* AirportSelector.m */,
@@ -402,6 +407,7 @@
 				920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */,
 				929D483716333F02004E1D43 /* LiveTracking.m in Sources */,
 				929D483A1633432E004E1D43 /* FlightStatusSingleton.m in Sources */,
+				928D171116337D5900EA3491 /* CSMapRouteLayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
