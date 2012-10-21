@@ -16,6 +16,8 @@
 
 @implementation FlightStatus
 
+@synthesize aircraftMfg, aircraftType;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,6 +34,8 @@
     self.sectionHeaders = [NSArray arrayWithObjects:@"Status", @"", @"", @"", nil];
     self.previousView = [[self.navigationController viewControllers] objectAtIndex:1];
     self.filteredFlights = [[NSMutableArray alloc] init];
+    self.aircraftMfg = [[NSString alloc] init];
+    self.aircraftType = [[NSString alloc] init];
     self.dataReturned = NO;
     
     [FlightStatusSingleton sharedInstance];
@@ -60,7 +64,7 @@
     NSTimeInterval time = floor([selectedDate timeIntervalSinceReferenceDate] / 60.0) * 60.0;
     self.roundedDate = [NSDate dateWithTimeIntervalSinceReferenceDate: time];
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/FlightInfo?ident=%@%@", selectedIdent, self.previousView.singletonObj.selectedFlightNo]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/FlightInfoEx?ident=%@%@", selectedIdent, self.previousView.singletonObj.selectedFlightNo]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     LGViewHUD *hud = [LGViewHUD defaultHUD];
@@ -81,6 +85,8 @@
 {
     self.dataReturned = NO;
     [self.filteredFlights removeAllObjects];
+    self.aircraftMfg = @"";
+    self.aircraftType = @"";
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -108,7 +114,7 @@
     NSError *error;
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:dataResponse options:kNilOptions error:&error];
     
-    NSDictionary *allData = [jsonDict objectForKey:@"FlightInfoResult"];
+    NSDictionary *allData = [jsonDict objectForKey:@"FlightInfoExResult"];
     
     NSArray *returnedFlights = [allData objectForKey:@"flights"];
     
@@ -122,14 +128,30 @@
         }
     }
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
+    if([self.aircraftMfg isEqualToString:@""] && [self.aircraftType isEqualToString:@""])
+    {
+    
+        NSLog(@"loading aircraft type info");
+        NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
                                                                                                                                                                                                 
-    dispatch_async(mainQueue, ^
+        dispatch_async(mainQueue, ^
                    {
                        NSData *data = [NSData dataWithContentsOfURL:jsonURL];
                        
                        [self performSelectorOnMainThread:@selector(dataRetreived2:) withObject:data waitUntilDone:YES];
                    });
+        
+        self.dataReturned = NO;
+        
+    }
+    else
+    {
+        NSLog(@"loaded aircraft type info");
+        self.dataReturned = YES;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
+        [self.tableView reloadData];
+    }
     
 }
 
@@ -191,6 +213,8 @@
     
     FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
     
+    singletonObj.faFlightID = [[self.filteredFlights objectAtIndex:0] valueForKey:@"faFlightID"];
+    
     if(indexPath.section == 0)
     {
         
@@ -203,22 +227,22 @@
         if(([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) && ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] == 0))
         {
             cell.textLabel.text = @"En Route";
-            [[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:YES];
+            //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:YES];
         }
         else if(([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) && ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] > 0))
         {
             cell.textLabel.text = @"Arrived";
-            [[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:NO];
+            //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:NO];
         }
         else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
         {
             cell.textLabel.text = @"Delayed";
-            [[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:YES];
+            //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:YES];
         }
         else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] == 0)
         {
             cell.textLabel.text = @"Scheduled";
-            [[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:NO];
+            //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:NO];
         }
             
         return cell;

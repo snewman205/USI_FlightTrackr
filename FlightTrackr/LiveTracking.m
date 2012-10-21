@@ -8,7 +8,6 @@
 
 #import "LiveTracking.h"
 
-#define GOOGLE_API_KEY @"AIzaSyDqUXBOcIY9fFw39wUgAOEtxsV7GiOCuA8"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface LiveTracking ()
@@ -35,7 +34,9 @@
 {
     [super viewDidLoad];
 	
-    [self.mapView setShowsUserLocation:YES];
+    self.returnedRouteData = [[NSArray alloc] init];
+    self.waypoints = [[NSMutableArray alloc] init];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     
@@ -50,42 +51,59 @@
 {
     FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
     
-    NSString *url = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%@&keyword=%@&sensor=true&key=%@", self.currentCenter.latitude, self.currentCenter.longitude, [NSString stringWithFormat:@"%i", self.currentDistance], singletonObj.originAirport, GOOGLE_API_KEY];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://flightxml.flightaware.com/json/FlightXML2/DecodeFlightRoute?faFlightID=%@", singletonObj.faFlightID]];
     
-    NSURL *requestURL = [NSURL URLWithString:url];
+    NSLog(@"url - %@", jsonURL);
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    LGViewHUD *hud = [LGViewHUD defaultHUD];
+    hud.activityIndicatorOn = YES;
+    hud.topText = @"Processing";
+    hud.bottomText = @"Please wait...";
+    [hud showInView:self.view];
     
     dispatch_async(kBgQueue, ^
                    {
-                       NSData *data = [NSData dataWithContentsOfURL:requestURL];
+                       NSData *data = [NSData dataWithContentsOfURL:jsonURL];
                        [self performSelectorOnMainThread:@selector(dataFetched:) withObject:data waitUntilDone:YES];
                    });
 }
 
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    
-    MKMapRect mRect = self.mapView.visibleMapRect;
-    
-    MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
-    MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
-    
-    self.currentDistance = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
-    self.currentCenter = self.mapView.centerCoordinate;
-    
-}
+//- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+//{
+//    
+//    MKMapRect mRect = self.mapView.visibleMapRect;
+//    
+//    MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
+//    MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
+//    
+//    self.currentDistance = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
+//    self.currentCenter = self.mapView.centerCoordinate;
+//    
+//}
 
 - (void)dataFetched:(NSData*)response
 {
+    
     NSError *error;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
     
-    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    NSDictionary *allData = [jsonDict objectForKey:@"DecodeFlightRouteResult"];
     
-    if(error)
+    self.returnedRouteData = [allData objectForKey:@"data"];
+    
+    for(int i = 0; i < [self.returnedRouteData count]; i++)
     {
-        NSLog(@"Error");
+        NSDictionary *flightObj = [self.returnedRouteData objectAtIndex:i];
+        CLLocation* currentLocation = [[CLLocation alloc] initWithLatitude:[[flightObj valueForKey:@"latitude"] doubleValue] longitude:[[flightObj valueForKey:@"longitude"] doubleValue]];
+        
+        [self.waypoints addObject:currentLocation];
     }
     
-    NSArray *placesArray = [jsonData objectForKey:@"results"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
+    
+    self.routeView = [[CSMapRouteLayerView alloc] initWithRoute:self.waypoints mapView:self.mapView];
     
 }
 

@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *destinationAirport;
 @property (strong, nonatomic) NSString *originAirport;
+@property (strong, nonatomic) NSString *faFlightID;
 
 + (FlightStatusSingleton *)sharedInstance;
 

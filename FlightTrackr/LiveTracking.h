@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "FlightStatusSingleton.h"
+#import "LGViewHUD.h"
+#import "CSMapRouteLayerView.h"
 
 @interface LiveTracking : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -18,5 +20,8 @@
 @property CLLocationCoordinate2D currentCenter;
 @property int currentDistance;
 @property BOOL firstLaunch;
+@property (strong, nonatomic) NSArray *returnedRouteData;
+@property (strong, nonatomic) NSMutableArray *waypoints;
+@property (strong, nonatomic) CSMapRouteLayerView *routeView;
 
 @end
