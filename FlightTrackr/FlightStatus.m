@@ -38,8 +38,12 @@
     self.aircraftType = [[NSString alloc] init];
     self.dataReturned = NO;
     
-    [FlightStatusSingleton sharedInstance];
-    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.aircraftMfg = @"";
+    self.aircraftType = @"";
 }
 
 - (void)loadTableData
@@ -64,7 +68,7 @@
     NSTimeInterval time = floor([selectedDate timeIntervalSinceReferenceDate] / 60.0) * 60.0;
     self.roundedDate = [NSDate dateWithTimeIntervalSinceReferenceDate: time];
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/FlightInfoEx?ident=%@%@", selectedIdent, self.previousView.singletonObj.selectedFlightNo]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/FlightInfoEx?ident=%@%@", selectedIdent, self.previousView.singletonObj.selectedFlightNo]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     LGViewHUD *hud = [LGViewHUD defaultHUD];
@@ -131,8 +135,7 @@
     if([self.aircraftMfg isEqualToString:@""] && [self.aircraftType isEqualToString:@""])
     {
     
-        NSLog(@"loading aircraft type info");
-        NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
+        NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
                                                                                                                                                                                                 
         dispatch_async(mainQueue, ^
                    {
@@ -146,7 +149,6 @@
     }
     else
     {
-        NSLog(@"loaded aircraft type info");
         self.dataReturned = YES;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
@@ -214,6 +216,7 @@
     FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
     
     singletonObj.faFlightID = [[self.filteredFlights objectAtIndex:0] valueForKey:@"faFlightID"];
+    singletonObj.flightIdent = [[self.filteredFlights objectAtIndex:0] valueForKey:@"ident"];
     
     if(indexPath.section == 0)
     {
@@ -234,7 +237,7 @@
             cell.textLabel.text = @"Arrived";
             //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:NO];
         }
-        else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
+        else if([[NSDate date] timeIntervalSince1970] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
         {
             cell.textLabel.text = @"Delayed";
             //[[self.tabBarController.tabBar.subviews objectAtIndex:2] setEnabled:YES];
@@ -280,6 +283,7 @@
         if(indexPath.row == 0)
         {
             singletonObj.originAirport = [[self.filteredFlights objectAtIndex:0] valueForKey:@"originName"];
+            singletonObj.originLocation = [[self.filteredFlights objectAtIndex:0] valueForKey:@"originCity"];
             cell1.textLabel.text = @"Origin:";
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"originName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"originCity"]];
         }
@@ -292,7 +296,7 @@
                     
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
                     
-            cell1.textLabel.text = @"Filed Departure:";
+            cell1.textLabel.text = @"Est. Departure:";
             cell1.detailTextLabel.text = [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]];
                         
         }
@@ -323,6 +327,7 @@
         if(indexPath.row == 0)
         {
             singletonObj.destinationAirport = [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationName"];
+            singletonObj.destinationLocation = [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationCity"];
             cell1.textLabel.text = @"Destination:";
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationCity"]];
         }
@@ -335,7 +340,7 @@
             
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
             
-            cell1.textLabel.text = @"Filed Arrival:";
+            cell1.textLabel.text = @"Est. Arrival:";
             cell1.detailTextLabel.text = [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]];
             
         }

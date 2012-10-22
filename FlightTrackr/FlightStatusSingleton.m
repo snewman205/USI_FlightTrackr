@@ -28,9 +28,13 @@ static FlightStatusSingleton *sharedSingletonClass = nil;
     
     if(self)
     {
+        self.originLocation = [[NSString alloc] init];
         self.originAirport = [[NSString alloc] init];
+        self.destinationLocation = [[NSString alloc] init];
         self.destinationAirport = [[NSString alloc] init];
         self.faFlightID = [[NSString alloc] init];
+        self.flightIdent = [[NSString alloc] init];
+        self.didChangeFlight = NO;
     }
     
     return self;

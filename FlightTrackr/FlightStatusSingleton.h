@@ -10,9 +10,13 @@
 
 @interface FlightStatusSingleton : NSObject
 
+@property (strong, nonatomic) NSString *destinationLocation;
 @property (strong, nonatomic) NSString *destinationAirport;
+@property (strong, nonatomic) NSString *originLocation;
 @property (strong, nonatomic) NSString *originAirport;
 @property (strong, nonatomic) NSString *faFlightID;
+@property (strong, nonatomic) NSString *flightIdent;
+@property (nonatomic) BOOL didChangeFlight;
 
 + (FlightStatusSingleton *)sharedInstance;
 

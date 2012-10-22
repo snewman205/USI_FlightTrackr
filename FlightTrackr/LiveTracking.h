@@ -11,7 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FlightStatusSingleton.h"
 #import "LGViewHUD.h"
-#import "CSMapRouteLayerView.h"
+#import "NVPolylineAnnotationView.h"
+#import "MapPoint.h"
+#import "MapPointCraft.h"
 
 @interface LiveTracking : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -19,9 +21,10 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property CLLocationCoordinate2D currentCenter;
 @property int currentDistance;
-@property BOOL firstLaunch;
+@property (nonatomic) BOOL foundCraft;
 @property (strong, nonatomic) NSArray *returnedRouteData;
 @property (strong, nonatomic) NSMutableArray *waypoints;
-@property (strong, nonatomic) CSMapRouteLayerView *routeView;
+@property (nonatomic) float craftCurrentHeading;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end

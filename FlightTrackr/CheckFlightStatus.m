@@ -320,6 +320,7 @@
 {
     // make sure they have specified either a flight number or search parameters
     
+    FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
     CheckFlightStatusCell *cell2 = (CheckFlightStatusCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please specify a flight number or search parameters" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     BOOL shouldSearchFlightNumber = NO;
@@ -343,6 +344,7 @@
     }
     else
     {
+        singletonObj.didChangeFlight = YES;
         self.singletonObj.selectedFlightNo = cell2.inpMenuItem.text;
         [self performSegueWithIdentifier:@"segueFlightStatus" sender:self];
     }

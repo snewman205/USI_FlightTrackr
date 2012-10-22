@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CheckFlightStatusCell.h"
 #import "CheckFlightStatusSingleton.h"
+#import "FlightStatusSingleton.h"
 
 @interface CheckFlightStatus : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
