@@ -47,12 +47,16 @@
 		0EAB5C37161654DF007F1F60 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C36161654DF007F1F60 /* MainMenu.m */; };
 		0EAB5C3A1616551A007F1F60 /* MainMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C391616551A007F1F60 /* MainMenuCell.m */; };
 		0EAE89491617480300CD246F /* CheckFlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE89481617480300CD246F /* CheckFlightStatus.m */; };
+		9206F7F116343A19001F265E /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9206F7F016343A19001F265E /* MapPoint.m */; };
+		9206F7F91634582E001F265E /* MapPointCraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 9206F7F81634582E001F265E /* MapPointCraft.m */; };
 		920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09F11632503B00E7BF81 /* LGViewHUD.m */; };
 		920E09F91632505B00E7BF81 /* rounded-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F51632505B00E7BF81 /* rounded-checkmark.png */; };
 		920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */; };
 		920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F71632505B00E7BF81 /* rounded-fail.png */; };
 		920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F81632505B00E7BF81 /* rounded-fail@2x.png */; };
-		928D171116337D5900EA3491 /* CSMapRouteLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D171016337D5900EA3491 /* CSMapRouteLayerView.m */; };
+		928AA1041634B10B00EB5B63 /* map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 928AA1031634B10B00EB5B63 /* map_marker.png */; };
+		928D171A1633A7E500EA3491 /* NVPolylineAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */; };
+		928D171B1633A7E500EA3491 /* NVPolylineAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */; };
 		929D482B16332035004E1D43 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 929D482A16332035004E1D43 /* 01-refresh.png */; };
 		929D483216333ECB004E1D43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483116333ECB004E1D43 /* CoreLocation.framework */; };
 		929D483416333ED2004E1D43 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483316333ED1004E1D43 /* MapKit.framework */; };
@@ -118,14 +122,21 @@
 		0EAB5C391616551A007F1F60 /* MainMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuCell.m; sourceTree = "<group>"; };
 		0EAE89471617480300CD246F /* CheckFlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatus.h; sourceTree = "<group>"; };
 		0EAE89481617480300CD246F /* CheckFlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatus.m; sourceTree = "<group>"; };
+		9206F7EF16343A19001F265E /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
+		9206F7F016343A19001F265E /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		9206F7F71634582E001F265E /* MapPointCraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPointCraft.h; sourceTree = "<group>"; };
+		9206F7F81634582E001F265E /* MapPointCraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPointCraft.m; sourceTree = "<group>"; };
 		920E09F11632503B00E7BF81 /* LGViewHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGViewHUD.m; sourceTree = "<group>"; };
 		920E09F41632504B00E7BF81 /* LGViewHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGViewHUD.h; sourceTree = "<group>"; };
 		920E09F51632505B00E7BF81 /* rounded-checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark.png"; sourceTree = "<group>"; };
 		920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark@2x.png"; sourceTree = "<group>"; };
 		920E09F71632505B00E7BF81 /* rounded-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail.png"; sourceTree = "<group>"; };
 		920E09F81632505B00E7BF81 /* rounded-fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail@2x.png"; sourceTree = "<group>"; };
-		928D171016337D5900EA3491 /* CSMapRouteLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMapRouteLayerView.m; sourceTree = "<group>"; };
-		928D171316337D6C00EA3491 /* CSMapRouteLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSMapRouteLayerView.h; sourceTree = "<group>"; };
+		928AA1031634B10B00EB5B63 /* map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker.png; sourceTree = "<group>"; };
+		928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPolylineAnnotation.m; sourceTree = "<group>"; };
+		928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPolylineAnnotationView.m; sourceTree = "<group>"; };
+		928D171D1633A82600EA3491 /* NVPolylineAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPolylineAnnotationView.h; sourceTree = "<group>"; };
+		928D171E1633A82700EA3491 /* NVPolylineAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPolylineAnnotation.h; sourceTree = "<group>"; };
 		929D482A16332035004E1D43 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		929D483116333ECB004E1D43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		929D483316333ED1004E1D43 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -159,6 +170,10 @@
 				0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */,
 				0E2AF4981623B53400CE7078 /* MainMenuSingleton.m */,
 				929D48391633432E004E1D43 /* FlightStatusSingleton.m */,
+				928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */,
+				928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */,
+				9206F7F016343A19001F265E /* MapPoint.m */,
+				9206F7F81634582E001F265E /* MapPointCraft.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -166,8 +181,11 @@
 		0E2BFF93162EFE4200F0D7B2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9206F7EF16343A19001F265E /* MapPoint.h */,
+				9206F7F71634582E001F265E /* MapPointCraft.h */,
 				929D48381633432D004E1D43 /* FlightStatusSingleton.h */,
-				928D171316337D6C00EA3491 /* CSMapRouteLayerView.h */,
+				928D171D1633A82600EA3491 /* NVPolylineAnnotationView.h */,
+				928D171E1633A82700EA3491 /* NVPolylineAnnotation.h */,
 				920E09F41632504B00E7BF81 /* LGViewHUD.h */,
 				0EAB5C35161654DF007F1F60 /* MainMenu.h */,
 				0EAE89471617480300CD246F /* CheckFlightStatus.h */,
@@ -253,6 +271,7 @@
 				920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */,
 				920E09F71632505B00E7BF81 /* rounded-fail.png */,
 				920E09F81632505B00E7BF81 /* rounded-fail@2x.png */,
+				928AA1031634B10B00EB5B63 /* map_marker.png */,
 				929D482A16332035004E1D43 /* 01-refresh.png */,
 				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
 				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
@@ -290,7 +309,6 @@
 			children = (
 				0EAB5C36161654DF007F1F60 /* MainMenu.m */,
 				0EAE89481617480300CD246F /* CheckFlightStatus.m */,
-				928D171016337D5900EA3491 /* CSMapRouteLayerView.m */,
 				0EA18044162CA02F00B5481B /* FlightStatus.m */,
 				0EA1805A162CB70300B5481B /* FlightStatusResults.m */,
 				0E712A151617D8470092AAA3 /* AirportSelector.m */,
@@ -378,6 +396,7 @@
 				920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */,
 				920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */,
 				929D482B16332035004E1D43 /* 01-refresh.png in Resources */,
+				928AA1041634B10B00EB5B63 /* map_marker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +426,10 @@
 				920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */,
 				929D483716333F02004E1D43 /* LiveTracking.m in Sources */,
 				929D483A1633432E004E1D43 /* FlightStatusSingleton.m in Sources */,
-				928D171116337D5900EA3491 /* CSMapRouteLayerView.m in Sources */,
+				928D171A1633A7E500EA3491 /* NVPolylineAnnotation.m in Sources */,
+				928D171B1633A7E500EA3491 /* NVPolylineAnnotationView.m in Sources */,
+				9206F7F116343A19001F265E /* MapPoint.m in Sources */,
+				9206F7F91634582E001F265E /* MapPointCraft.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
