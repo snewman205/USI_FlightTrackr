@@ -5,7 +5,6 @@
 //  Created by Unbounded on 9/29/12.
 //  Copyright (c) 2012 Scott Newman. All rights reserved.
 //
-//  TODO - Convert table cells to default
 
 #import "CheckFlightStatus.h"
 #import "AirportSelector.h"

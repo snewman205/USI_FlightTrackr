@@ -12,6 +12,8 @@
 #import "LGViewHUD.h"
 #import "MainMenuSingleton.h"
 #import "AirportSingleton.h"
+#import "AirportSelectorResultsObj.h"
+#import "CheckFlightStatus.h"
 
 @interface AirportSelectorResults : UITableViewController <UIAlertViewDelegate>
 

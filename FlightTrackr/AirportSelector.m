@@ -7,8 +7,6 @@
 //
 
 #import "AirportSelector.h"
-#import "AirportSelectorCell.h"
-#import "AirportSelectorResults.h"
 
 @interface AirportSelector ()
 

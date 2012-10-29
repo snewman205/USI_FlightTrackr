@@ -8,8 +8,6 @@
 
 #import "FlightStatus.h"
 
-#define mainQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 @interface FlightStatus ()
 
 @end
@@ -74,7 +72,7 @@
     
     
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/FlightInfoEx?ident=%@%@", selectedIdent, self.singletonObj1.selectedFlightNo]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@@flightxml.flightaware.com/json/FlightXML2/FlightInfoEx?ident=%@%@", FLIGHT_AWARE_USERNAME, FLIGHT_AWARE_KEY, selectedIdent, self.singletonObj1.selectedFlightNo]];
     
     for(UITabBarItem *item in [[self.tabBarController tabBar] items])
         [item setEnabled:NO];
@@ -119,7 +117,7 @@
     self.aircraftMfg = [allData objectForKey:@"manufacturer"];
     self.aircraftType = [allData objectForKey:@"type"];
         
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/AirlineFlightInfo?faFlightID=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"faFlightID"]]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@@flightxml.flightaware.com/json/FlightXML2/AirlineFlightInfo?faFlightID=%@", FLIGHT_AWARE_USERNAME, FLIGHT_AWARE_KEY, [[self.filteredFlights objectAtIndex:0] valueForKey:@"faFlightID"]]];
     
     dispatch_async(mainQueue, ^
                     {
@@ -191,7 +189,7 @@
         return;
     }
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@@flightxml.flightaware.com/json/FlightXML2/AircraftType?type=%@", FLIGHT_AWARE_USERNAME, FLIGHT_AWARE_KEY, [[self.filteredFlights objectAtIndex:0] valueForKey:@"aircrafttype"]]];
                                                                                                                                                                                                 
     dispatch_async(mainQueue, ^
                 {

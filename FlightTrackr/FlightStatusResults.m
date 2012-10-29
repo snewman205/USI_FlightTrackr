@@ -8,8 +8,6 @@
 
 #import "FlightStatusResults.h"
 
-#define mainQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 @interface FlightStatusResults ()
 
 @end
@@ -38,7 +36,7 @@
     self.airlineLogos = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"airtran_logo_sm.jpg"], [UIImage imageNamed:@"american_logo_sm.png"], [UIImage imageNamed:@"delta_logo_sm.png"], [UIImage imageNamed:@"easyjet_logo_sm.gif"], [UIImage imageNamed:@"expressjet_logo_sm.jpg"], [UIImage imageNamed:@"jetblue_logo_sm.png"], [UIImage imageNamed:@"southwest_airlines_logo.png"], [UIImage imageNamed:@"united_logo_sm.png"], [UIImage imageNamed:@"usairways_logo_sm.png"], nil];
     [self.tableView setScrollEnabled:NO];
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", ([self.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.singletonObj.selectedDestinationIdent, self.singletonObj.selectedOriginIdent, self.singletonObj.selectedAirlineIdent2]];
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", FLIGHT_AWARE_USERNAME, FLIGHT_AWARE_KEY, ([self.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.singletonObj.selectedDestinationIdent, self.singletonObj.selectedOriginIdent, self.singletonObj.selectedAirlineIdent2]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     LGViewHUD *hud = [LGViewHUD defaultHUD];

@@ -7,8 +7,6 @@
 //
 
 #import "AirportSelectorResults.h"
-#import "AirportSelectorResultsObj.h"
-#import "CheckFlightStatus.h"
 
 @interface AirportSelectorResults ()
 
