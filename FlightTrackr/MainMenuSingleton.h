@@ -11,6 +11,7 @@
 @interface MainMenuSingleton : NSObject
 
 @property (nonatomic) NSInteger selectedItem;
+@property (strong, nonatomic) NSString *selectedFavorites;
 
 + (MainMenuSingleton *)sharedInstance;
 

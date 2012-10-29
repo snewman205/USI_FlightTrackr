@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E01FED31639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FED21639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m */; };
+		0E01FEDC163AD58E00C7E1B5 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FEDB163AD58E00C7E1B5 /* Settings.m */; };
+		0E01FEE0163AD60100C7E1B5 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FEDF163AD60100C7E1B5 /* SettingsCell.m */; };
+		0E1D40021636EAA5004B66FC /* AirportSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D40011636EAA5004B66FC /* AirportSingleton.m */; };
+		0E1D40051636F0A1004B66FC /* AirportDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D40041636F0A1004B66FC /* AirportDetail.m */; };
+		0E1D401516372A78004B66FC /* StandardMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D401416372A78004B66FC /* StandardMapPoint.m */; };
+		0E1D401816373ADA004B66FC /* AirportLocalPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D401716373ADA004B66FC /* AirportLocalPlaces.m */; };
+		0E1D4050163840DE004B66FC /* AirportLocalPlacesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D404F163840DE004B66FC /* AirportLocalPlacesList.m */; };
+		0E1D40531638416C004B66FC /* LocalPlacesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D40521638416C004B66FC /* LocalPlacesObject.m */; };
+		0E1D4063163862AD004B66FC /* AirportLocalPlaceDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D4062163862AC004B66FC /* AirportLocalPlaceDetail.m */; };
+		0E1D406616388FF8004B66FC /* FlightSelectorResultsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D406516388FF7004B66FC /* FlightSelectorResultsObj.m */; };
 		0E2AF40E161F692100CE7078 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2AF40D161F692100CE7078 /* 38-airplane.png */; };
 		0E2AF41216208F4100CE7078 /* AirportSelectorResultsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */; };
 		0E2AF4161620E2AE00CE7078 /* CheckFlightStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2AF4151620E2AE00CE7078 /* CheckFlightStatusSingleton.m */; };
@@ -20,6 +31,13 @@
 		0E96D02C1627554B00A34575 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96D02B1627554B00A34575 /* CoreData.framework */; };
 		0E96D0341627567E00A34575 /* FlightTrackr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */; };
 		0E96D037162764F400A34575 /* FavoriteAirports.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E96D036162764F400A34575 /* FavoriteAirports.m */; };
+		0E9C8D671635A3AA00235073 /* CurrentConditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C8D661635A3AA00235073 /* CurrentConditions.m */; };
+		0E9C8D6A1635A8C700235073 /* ForecastObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C8D691635A8C700235073 /* ForecastObject.m */; };
+		0E9C8D701635CD3C00235073 /* wind_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C8D6F1635CD3C00235073 /* wind_icon.png */; };
+		0E9C8D741635D4D800235073 /* thermometer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C8D731635D4D800235073 /* thermometer_icon.png */; };
+		0E9C8D7A1635D5D700235073 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C8D791635D5D700235073 /* Settings.bundle */; };
+		0E9C8D841636485000235073 /* suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C8D831636485000235073 /* suitcase.png */; };
+		0E9C8D87163649AC00235073 /* BaggageClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C8D86163649AC00235073 /* BaggageClaim.m */; };
 		0EA18045162CA02F00B5481B /* FlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA18044162CA02F00B5481B /* FlightStatus.m */; };
 		0EA18050162CB28D00B5481B /* airtran_logo_sm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */; };
 		0EA18051162CB28D00B5481B /* american_logo_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA18048162CB28D00B5481B /* american_logo_sm.png */; };
@@ -47,14 +65,46 @@
 		0EAB5C37161654DF007F1F60 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C36161654DF007F1F60 /* MainMenu.m */; };
 		0EAB5C3A1616551A007F1F60 /* MainMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB5C391616551A007F1F60 /* MainMenuCell.m */; };
 		0EAE89491617480300CD246F /* CheckFlightStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE89481617480300CD246F /* CheckFlightStatus.m */; };
+		9206F7F116343A19001F265E /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9206F7F016343A19001F265E /* MapPoint.m */; };
+		9206F7F91634582E001F265E /* MapPointCraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 9206F7F81634582E001F265E /* MapPointCraft.m */; };
 		920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09F11632503B00E7BF81 /* LGViewHUD.m */; };
 		920E09F91632505B00E7BF81 /* rounded-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F51632505B00E7BF81 /* rounded-checkmark.png */; };
 		920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */; };
 		920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F71632505B00E7BF81 /* rounded-fail.png */; };
 		920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F81632505B00E7BF81 /* rounded-fail@2x.png */; };
+		928AA1041634B10B00EB5B63 /* map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 928AA1031634B10B00EB5B63 /* map_marker.png */; };
+		928D171A1633A7E500EA3491 /* NVPolylineAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */; };
+		928D171B1633A7E500EA3491 /* NVPolylineAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */; };
+		929D482B16332035004E1D43 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 929D482A16332035004E1D43 /* 01-refresh.png */; };
+		929D483216333ECB004E1D43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483116333ECB004E1D43 /* CoreLocation.framework */; };
+		929D483416333ED2004E1D43 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929D483316333ED1004E1D43 /* MapKit.framework */; };
+		929D483716333F02004E1D43 /* LiveTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D483616333F02004E1D43 /* LiveTracking.m */; };
+		929D483A1633432E004E1D43 /* FlightStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D48391633432E004E1D43 /* FlightStatusSingleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E01FED21639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneCancelNumberPadToolbar.m; sourceTree = "<group>"; };
+		0E01FED51639A3AD00C7E1B5 /* DoneCancelNumberPadToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneCancelNumberPadToolbar.h; sourceTree = "<group>"; };
+		0E01FEDA163AD58E00C7E1B5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		0E01FEDB163AD58E00C7E1B5 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		0E01FEDE163AD60100C7E1B5 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
+		0E01FEDF163AD60100C7E1B5 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		0E1D40001636EAA5004B66FC /* AirportSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSingleton.h; sourceTree = "<group>"; };
+		0E1D40011636EAA5004B66FC /* AirportSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSingleton.m; sourceTree = "<group>"; };
+		0E1D40031636F0A1004B66FC /* AirportDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportDetail.h; sourceTree = "<group>"; };
+		0E1D40041636F0A1004B66FC /* AirportDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportDetail.m; sourceTree = "<group>"; };
+		0E1D401316372A78004B66FC /* StandardMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardMapPoint.h; sourceTree = "<group>"; };
+		0E1D401416372A78004B66FC /* StandardMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardMapPoint.m; sourceTree = "<group>"; };
+		0E1D401616373ADA004B66FC /* AirportLocalPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportLocalPlaces.h; sourceTree = "<group>"; };
+		0E1D401716373ADA004B66FC /* AirportLocalPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportLocalPlaces.m; sourceTree = "<group>"; };
+		0E1D404E163840DD004B66FC /* AirportLocalPlacesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportLocalPlacesList.h; sourceTree = "<group>"; };
+		0E1D404F163840DE004B66FC /* AirportLocalPlacesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportLocalPlacesList.m; sourceTree = "<group>"; };
+		0E1D40511638416B004B66FC /* LocalPlacesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPlacesObject.h; sourceTree = "<group>"; };
+		0E1D40521638416C004B66FC /* LocalPlacesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPlacesObject.m; sourceTree = "<group>"; };
+		0E1D4061163862AB004B66FC /* AirportLocalPlaceDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportLocalPlaceDetail.h; sourceTree = "<group>"; };
+		0E1D4062163862AC004B66FC /* AirportLocalPlaceDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportLocalPlaceDetail.m; sourceTree = "<group>"; };
+		0E1D406416388FF7004B66FC /* FlightSelectorResultsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSelectorResultsObj.h; sourceTree = "<group>"; };
+		0E1D406516388FF7004B66FC /* FlightSelectorResultsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSelectorResultsObj.m; sourceTree = "<group>"; };
 		0E2AF40D161F692100CE7078 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
 		0E2AF41016208F4000CE7078 /* AirportSelectorResultsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSelectorResultsObj.h; sourceTree = "<group>"; };
 		0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSelectorResultsObj.m; sourceTree = "<group>"; };
@@ -76,6 +126,16 @@
 		0E96D0331627567E00A34575 /* FlightTrackr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightTrackr.xcdatamodel; sourceTree = "<group>"; };
 		0E96D035162764F400A34575 /* FavoriteAirports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteAirports.h; sourceTree = "<group>"; };
 		0E96D036162764F400A34575 /* FavoriteAirports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteAirports.m; sourceTree = "<group>"; };
+		0E9C8D651635A3AA00235073 /* CurrentConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentConditions.h; sourceTree = "<group>"; };
+		0E9C8D661635A3AA00235073 /* CurrentConditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentConditions.m; sourceTree = "<group>"; };
+		0E9C8D681635A8C700235073 /* ForecastObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastObject.h; sourceTree = "<group>"; };
+		0E9C8D691635A8C700235073 /* ForecastObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastObject.m; sourceTree = "<group>"; };
+		0E9C8D6F1635CD3C00235073 /* wind_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wind_icon.png; sourceTree = "<group>"; };
+		0E9C8D731635D4D800235073 /* thermometer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermometer_icon.png; sourceTree = "<group>"; };
+		0E9C8D791635D5D700235073 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		0E9C8D831636485000235073 /* suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suitcase.png; sourceTree = "<group>"; };
+		0E9C8D85163649AC00235073 /* BaggageClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaggageClaim.h; sourceTree = "<group>"; };
+		0E9C8D86163649AC00235073 /* BaggageClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaggageClaim.m; sourceTree = "<group>"; };
 		0EA18043162CA02F00B5481B /* FlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatus.h; sourceTree = "<group>"; };
 		0EA18044162CA02F00B5481B /* FlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightStatus.m; sourceTree = "<group>"; };
 		0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airtran_logo_sm.jpg; sourceTree = "<group>"; };
@@ -112,12 +172,28 @@
 		0EAB5C391616551A007F1F60 /* MainMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuCell.m; sourceTree = "<group>"; };
 		0EAE89471617480300CD246F /* CheckFlightStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightStatus.h; sourceTree = "<group>"; };
 		0EAE89481617480300CD246F /* CheckFlightStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightStatus.m; sourceTree = "<group>"; };
+		9206F7EF16343A19001F265E /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
+		9206F7F016343A19001F265E /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		9206F7F71634582E001F265E /* MapPointCraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPointCraft.h; sourceTree = "<group>"; };
+		9206F7F81634582E001F265E /* MapPointCraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPointCraft.m; sourceTree = "<group>"; };
 		920E09F11632503B00E7BF81 /* LGViewHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGViewHUD.m; sourceTree = "<group>"; };
 		920E09F41632504B00E7BF81 /* LGViewHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGViewHUD.h; sourceTree = "<group>"; };
 		920E09F51632505B00E7BF81 /* rounded-checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark.png"; sourceTree = "<group>"; };
 		920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-checkmark@2x.png"; sourceTree = "<group>"; };
 		920E09F71632505B00E7BF81 /* rounded-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail.png"; sourceTree = "<group>"; };
 		920E09F81632505B00E7BF81 /* rounded-fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rounded-fail@2x.png"; sourceTree = "<group>"; };
+		928AA1031634B10B00EB5B63 /* map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker.png; sourceTree = "<group>"; };
+		928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPolylineAnnotation.m; sourceTree = "<group>"; };
+		928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPolylineAnnotationView.m; sourceTree = "<group>"; };
+		928D171D1633A82600EA3491 /* NVPolylineAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPolylineAnnotationView.h; sourceTree = "<group>"; };
+		928D171E1633A82700EA3491 /* NVPolylineAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPolylineAnnotation.h; sourceTree = "<group>"; };
+		929D482A16332035004E1D43 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
+		929D483116333ECB004E1D43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		929D483316333ED1004E1D43 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		929D483516333F02004E1D43 /* LiveTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveTracking.h; sourceTree = "<group>"; };
+		929D483616333F02004E1D43 /* LiveTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveTracking.m; sourceTree = "<group>"; };
+		929D48381633432D004E1D43 /* FlightStatusSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatusSingleton.h; sourceTree = "<group>"; };
+		929D48391633432E004E1D43 /* FlightStatusSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightStatusSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +201,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929D483416333ED2004E1D43 /* MapKit.framework in Frameworks */,
+				929D483216333ECB004E1D43 /* CoreLocation.framework in Frameworks */,
 				0E96D02C1627554B00A34575 /* CoreData.framework in Frameworks */,
 				0EAB5C0C16165400007F1F60 /* UIKit.framework in Frameworks */,
 				0EAB5C0E16165400007F1F60 /* Foundation.framework in Frameworks */,
@@ -141,6 +219,19 @@
 				0E2AF4151620E2AE00CE7078 /* CheckFlightStatusSingleton.m */,
 				0E2AF41116208F4000CE7078 /* AirportSelectorResultsObj.m */,
 				0E2AF4981623B53400CE7078 /* MainMenuSingleton.m */,
+				929D48391633432E004E1D43 /* FlightStatusSingleton.m */,
+				928D17181633A7E500EA3491 /* NVPolylineAnnotation.m */,
+				928D17191633A7E500EA3491 /* NVPolylineAnnotationView.m */,
+				9206F7F016343A19001F265E /* MapPoint.m */,
+				9206F7F81634582E001F265E /* MapPointCraft.m */,
+				920E09F11632503B00E7BF81 /* LGViewHUD.m */,
+				0E9C8D691635A8C700235073 /* ForecastObject.m */,
+				0E1D40011636EAA5004B66FC /* AirportSingleton.m */,
+				0E1D401416372A78004B66FC /* StandardMapPoint.m */,
+				0E1D40521638416C004B66FC /* LocalPlacesObject.m */,
+				0E1D406516388FF7004B66FC /* FlightSelectorResultsObj.m */,
+				0E01FED21639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m */,
+				0E01FEDF163AD60100C7E1B5 /* SettingsCell.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -148,7 +239,22 @@
 		0E2BFF93162EFE4200F0D7B2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				0E2AF4141620E2AE00CE7078 /* CheckFlightStatusSingleton.h */,
+				0E2AF41016208F4000CE7078 /* AirportSelectorResultsObj.h */,
+				0E2AF4971623B53400CE7078 /* MainMenuSingleton.h */,
+				929D48381633432D004E1D43 /* FlightStatusSingleton.h */,
+				928D171E1633A82700EA3491 /* NVPolylineAnnotation.h */,
+				928D171D1633A82600EA3491 /* NVPolylineAnnotationView.h */,
+				9206F7EF16343A19001F265E /* MapPoint.h */,
+				9206F7F71634582E001F265E /* MapPointCraft.h */,
 				920E09F41632504B00E7BF81 /* LGViewHUD.h */,
+				0E9C8D681635A8C700235073 /* ForecastObject.h */,
+				0E1D40001636EAA5004B66FC /* AirportSingleton.h */,
+				0E1D401316372A78004B66FC /* StandardMapPoint.h */,
+				0E1D40511638416B004B66FC /* LocalPlacesObject.h */,
+				0E1D406416388FF7004B66FC /* FlightSelectorResultsObj.h */,
+				0E01FED51639A3AD00C7E1B5 /* DoneCancelNumberPadToolbar.h */,
+				0E01FEDE163AD60100C7E1B5 /* SettingsCell.h */,
 				0EAB5C35161654DF007F1F60 /* MainMenu.h */,
 				0EAE89471617480300CD246F /* CheckFlightStatus.h */,
 				0EA18043162CA02F00B5481B /* FlightStatus.h */,
@@ -156,12 +262,17 @@
 				0E712A141617D8470092AAA3 /* AirportSelector.h */,
 				0E712A2C161901890092AAA3 /* AirportSelectorResults.h */,
 				0E96D035162764F400A34575 /* FavoriteAirports.h */,
+				929D483516333F02004E1D43 /* LiveTracking.h */,
+				0E9C8D651635A3AA00235073 /* CurrentConditions.h */,
+				0E9C8D85163649AC00235073 /* BaggageClaim.h */,
+				0E1D40031636F0A1004B66FC /* AirportDetail.h */,
+				0E1D401616373ADA004B66FC /* AirportLocalPlaces.h */,
+				0E1D404E163840DD004B66FC /* AirportLocalPlacesList.h */,
+				0E1D4061163862AB004B66FC /* AirportLocalPlaceDetail.h */,
+				0E01FEDA163AD58E00C7E1B5 /* Settings.h */,
 				0EAB5C381616551A007F1F60 /* MainMenuCell.h */,
 				0E2FA0D51617687F00BF81E9 /* CheckFlightStatusCell.h */,
 				0E712A171617D8680092AAA3 /* AirportSelectorCell.h */,
-				0E2AF4141620E2AE00CE7078 /* CheckFlightStatusSingleton.h */,
-				0E2AF41016208F4000CE7078 /* AirportSelectorResultsObj.h */,
-				0E2AF4971623B53400CE7078 /* MainMenuSingleton.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -186,6 +297,8 @@
 		0EAB5C0A16165400007F1F60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				929D483316333ED1004E1D43 /* MapKit.framework */,
+				929D483116333ECB004E1D43 /* CoreLocation.framework */,
 				0E96D02B1627554B00A34575 /* CoreData.framework */,
 				0EAB5C0B16165400007F1F60 /* UIKit.framework */,
 				0EAB5C0D16165400007F1F60 /* Foundation.framework */,
@@ -202,8 +315,8 @@
 				0EAB5C2316165400007F1F60 /* MainStoryboard.storyboard */,
 				0E2AF41316208F9F00CE7078 /* Custom Objects */,
 				0EAE8953161752D500CD246F /* Controllers */,
-				0E2BFF93162EFE4200F0D7B2 /* Headers */,
 				0EAE8952161752AC00CD246F /* Custom Cells */,
+				0E2BFF93162EFE4200F0D7B2 /* Headers */,
 				0EAB5C2E16165434007F1F60 /* Assets */,
 				0EAB5C1216165400007F1F60 /* Supporting Files */,
 			);
@@ -213,12 +326,14 @@
 		0EAB5C1216165400007F1F60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */,
 				0E2FA0D8161773A200BF81E9 /* Airlines.plist */,
 				0E712A34161A12480092AAA3 /* Airports.plist */,
 				0EAB5C1316165400007F1F60 /* FlightTrackr-Info.plist */,
 				0EAB5C1416165400007F1F60 /* InfoPlist.strings */,
 				0EAB5C1716165400007F1F60 /* main.m */,
 				0EAB5C1916165400007F1F60 /* FlightTrackr-Prefix.pch */,
+				0E9C8D791635D5D700235073 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -226,10 +341,14 @@
 		0EAB5C2E16165434007F1F60 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0E9C8D731635D4D800235073 /* thermometer_icon.png */,
+				0E9C8D6F1635CD3C00235073 /* wind_icon.png */,
 				920E09F51632505B00E7BF81 /* rounded-checkmark.png */,
 				920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */,
 				920E09F71632505B00E7BF81 /* rounded-fail.png */,
 				920E09F81632505B00E7BF81 /* rounded-fail@2x.png */,
+				928AA1031634B10B00EB5B63 /* map_marker.png */,
+				929D482A16332035004E1D43 /* 01-refresh.png */,
 				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
 				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
 				0EA18060162DAA9B00B5481B /* 07-map-marker.png */,
@@ -243,7 +362,7 @@
 				0EA1804D162CB28D00B5481B /* southwest_airlines_logo.png */,
 				0EA1804E162CB28D00B5481B /* united_logo_sm.png */,
 				0EA1804F162CB28D00B5481B /* usairways_logo_sm.png */,
-				0E96D0321627567E00A34575 /* FlightTrackr.xcdatamodeld */,
+				0E9C8D831636485000235073 /* suitcase.png */,
 				0E2AF40D161F692100CE7078 /* 38-airplane.png */,
 				0EAB5C3316165477007F1F60 /* Default@2x.png */,
 				0EAB5C3116165470007F1F60 /* Default.png */,
@@ -270,8 +389,15 @@
 				0EA1805A162CB70300B5481B /* FlightStatusResults.m */,
 				0E712A151617D8470092AAA3 /* AirportSelector.m */,
 				0E712A2D161901890092AAA3 /* AirportSelectorResults.m */,
+				0E1D40041636F0A1004B66FC /* AirportDetail.m */,
 				0E96D036162764F400A34575 /* FavoriteAirports.m */,
-				920E09F11632503B00E7BF81 /* LGViewHUD.m */,
+				929D483616333F02004E1D43 /* LiveTracking.m */,
+				0E9C8D661635A3AA00235073 /* CurrentConditions.m */,
+				0E9C8D86163649AC00235073 /* BaggageClaim.m */,
+				0E1D401716373ADA004B66FC /* AirportLocalPlaces.m */,
+				0E1D404F163840DE004B66FC /* AirportLocalPlacesList.m */,
+				0E1D4062163862AC004B66FC /* AirportLocalPlaceDetail.m */,
+				0E01FEDB163AD58E00C7E1B5 /* Settings.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -351,6 +477,12 @@
 				920E09FA1632505B00E7BF81 /* rounded-checkmark@2x.png in Resources */,
 				920E09FB1632505B00E7BF81 /* rounded-fail.png in Resources */,
 				920E09FC1632505B00E7BF81 /* rounded-fail@2x.png in Resources */,
+				929D482B16332035004E1D43 /* 01-refresh.png in Resources */,
+				928AA1041634B10B00EB5B63 /* map_marker.png in Resources */,
+				0E9C8D701635CD3C00235073 /* wind_icon.png in Resources */,
+				0E9C8D741635D4D800235073 /* thermometer_icon.png in Resources */,
+				0E9C8D7A1635D5D700235073 /* Settings.bundle in Resources */,
+				0E9C8D841636485000235073 /* suitcase.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +510,26 @@
 				0EA18045162CA02F00B5481B /* FlightStatus.m in Sources */,
 				0EA1805B162CB70400B5481B /* FlightStatusResults.m in Sources */,
 				920E09F21632503B00E7BF81 /* LGViewHUD.m in Sources */,
+				929D483716333F02004E1D43 /* LiveTracking.m in Sources */,
+				929D483A1633432E004E1D43 /* FlightStatusSingleton.m in Sources */,
+				928D171A1633A7E500EA3491 /* NVPolylineAnnotation.m in Sources */,
+				928D171B1633A7E500EA3491 /* NVPolylineAnnotationView.m in Sources */,
+				9206F7F116343A19001F265E /* MapPoint.m in Sources */,
+				9206F7F91634582E001F265E /* MapPointCraft.m in Sources */,
+				0E9C8D671635A3AA00235073 /* CurrentConditions.m in Sources */,
+				0E9C8D6A1635A8C700235073 /* ForecastObject.m in Sources */,
+				0E9C8D87163649AC00235073 /* BaggageClaim.m in Sources */,
+				0E1D40021636EAA5004B66FC /* AirportSingleton.m in Sources */,
+				0E1D40051636F0A1004B66FC /* AirportDetail.m in Sources */,
+				0E1D401516372A78004B66FC /* StandardMapPoint.m in Sources */,
+				0E1D401816373ADA004B66FC /* AirportLocalPlaces.m in Sources */,
+				0E1D4050163840DE004B66FC /* AirportLocalPlacesList.m in Sources */,
+				0E1D40531638416C004B66FC /* LocalPlacesObject.m in Sources */,
+				0E1D4063163862AD004B66FC /* AirportLocalPlaceDetail.m in Sources */,
+				0E1D406616388FF8004B66FC /* FlightSelectorResultsObj.m in Sources */,
+				0E01FED31639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m in Sources */,
+				0E01FEDC163AD58E00C7E1B5 /* Settings.m in Sources */,
+				0E01FEE0163AD60100C7E1B5 /* SettingsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

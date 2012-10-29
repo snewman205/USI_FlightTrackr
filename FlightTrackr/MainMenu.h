@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuSingleton.h"
 
 @interface MainMenu : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 

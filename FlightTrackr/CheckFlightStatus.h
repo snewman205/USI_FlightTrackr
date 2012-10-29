@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CheckFlightStatusCell.h"
 #import "CheckFlightStatusSingleton.h"
+#import "FlightStatusSingleton.h"
+#import "DoneCancelNumberPadToolbar.h"
+#import "MainMenuSingleton.h"
 
-@interface CheckFlightStatus : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface CheckFlightStatus : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DoneCancelNumberPadToolbarDelegate>
 
 @property (strong, nonatomic) NSArray *sectionHeaders;
 @property (strong, nonatomic) NSArray *sectionContent;

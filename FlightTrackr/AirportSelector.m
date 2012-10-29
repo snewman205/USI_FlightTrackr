@@ -163,6 +163,7 @@
     self.selectedCell = (AirportSelectorCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     NSString *actionTitle = @"";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    MainMenuSingleton *singletonObj = [MainMenuSingleton sharedInstance];
     
     switch(indexPath.section)
     {
@@ -206,6 +207,7 @@
             
             if(indexPath.row == 0)
             {
+                singletonObj.selectedFavorites = @"airports";
                 [self performSegueWithIdentifier:@"segueFavoriteAirports" sender:self];
             }
     }

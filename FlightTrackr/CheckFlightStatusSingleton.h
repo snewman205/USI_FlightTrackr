@@ -24,8 +24,8 @@
 @property (strong, nonatomic) NSString *selectedFlightNo;
 @property (nonatomic) NSInteger selectedAirlineIndex1;
 @property (nonatomic) NSInteger selectedAirlineIndex2;
-@property (nonatomic) BOOL *didSelectDate;
-@property (nonatomic) BOOL *didSelectDate1;
+@property (nonatomic) BOOL didSelectDate;
+@property (nonatomic) BOOL didSelectDate1;
 @property (nonatomic) BOOL didSearchFlight;
 
 + (CheckFlightStatusSingleton *)sharedInstance;

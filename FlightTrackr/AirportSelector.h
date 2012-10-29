@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AirportSelectorCell.h"
+#import "MainMenuSingleton.h"
 
 @interface AirportSelector : UITableViewController <UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate, UITextFieldDelegate>
 

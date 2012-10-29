@@ -5,6 +5,7 @@
 //  Created by Unbounded on 9/29/12.
 //  Copyright (c) 2012 Scott Newman. All rights reserved.
 //
+//  TODO - Convert table cells to default
 
 #import "CheckFlightStatus.h"
 #import "AirportSelector.h"
@@ -23,32 +24,17 @@
     return self;
 }
 
-// onLoad
-- (void)viewDidLoad
-{
-    
-    [super viewDidLoad];
-    
-    self.singletonObj = [CheckFlightStatusSingleton sharedInstance];
-    self.sectionHeaders = [[NSArray alloc] initWithObjects:@"Search by Flight Number", @"Search by Origin or Destination", nil];
+#pragma mark - TableView delegate
 
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+// Setting up the table
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
     return [self.sectionHeaders count];
+}
+
+- (void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickCancel:(UITextField *)textField
+{
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -71,6 +57,9 @@
         case 1:
             numRows = 4;
         break;
+        case 2:
+            numRows = 1;
+        break;
     }
     
     return numRows;
@@ -79,155 +68,155 @@
 // building the cells
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CheckFlightStatusCell";
-    CheckFlightStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    CheckFlightStatusCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"CheckFlightStatusCell"];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     
-    switch(indexPath.section)
+    if(indexPath.section == 0)
     {
-        case 0:
-            
-            switch(indexPath.row)
-            {
-                case 0:
+        if(indexPath.row == 0)
+        {
                 
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 
-                    if(self.singletonObj.selectedAirlineIndex1 == -1)
-                    {
+            if(self.singletonObj.selectedAirlineIndex1 == -1)
+            {
                         
-                        cell.lblMenuItemLabel.text = @"Select an airline...";
+                cell.textLabel.text = @"Select an airline...";
+                cell.detailTextLabel.text = @"";
                         
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Airline:";
-                        [cell.lblMenuItem setFrame:CGRectMake(75, cell.lblMenuItem.frame.origin.y, cell.lblMenuItem.frame.size.width, cell.lblMenuItem.frame.size.height)];
-                        cell.lblMenuItem.text = self.singletonObj.selectedAirlineName1;
-                        cell.lblMenuItem.hidden = NO;
-                    }
+            }
+            else
+            {
+                cell.textLabel.text = @"Airline:";
+                cell.detailTextLabel.text = self.singletonObj.selectedAirlineName1;
+            }
+                
+        }
+    
+        else if(indexPath.row == 1)
+        {
+                
+            cell1.inpMenuItem.placeholder = @"5254";
+            cell1.inpMenuItem.keyboardType = UIKeyboardTypeNumberPad;
+            DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:cell1.inpMenuItem];
+            [toolbar setDelegate:self];
+            [cell1.inpMenuItem setInputAccessoryView:toolbar];
+            [cell1.inpMenuItem addTarget:self action:@selector(textFieldShouldReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
+            cell1.inpMenuItem.hidden = NO;
+            cell1.inpMenuItem.enabled = YES;
+            cell1.lblMenuItemLabel.text = @"Flight #:";
+            [cell1 setAccessoryType:UITableViewCellAccessoryNone];
                     
-                break;
+            return cell1;
                     
-                case 1:
+        }
                     
-                    cell.accessoryType = UITableViewCellAccessoryNone;
-                    cell.inpMenuItem.placeholder = @"5254";
-                    cell.inpMenuItem.keyboardType = UIKeyboardTypeNumberPad;
-                    [cell.inpMenuItem addTarget:self action:@selector(textFieldShouldReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
-                    cell.inpMenuItem.hidden = NO;
-                    cell.inpMenuItem.enabled = YES;
-                    cell.lblMenuItemLabel.text = @"Flight #:";
+        else if(indexPath.row == 2)
+        {
+                
+            [dateFormat1 setDateFormat:@"MMM dd yyyy - h:mm a"];
                     
-                break;
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
                     
-                case 2:
+            if(!self.singletonObj.didSelectDate1)
+            {
+                cell.textLabel.text = @"Select departure date...";
+                cell.detailTextLabel.text = @"";
+            }
+            else
+            {
+                cell.textLabel.text = @"Departure:";
+                cell.detailTextLabel.text = [dateFormat1 stringFromDate:self.singletonObj.selectedDateIndex1];
+            }
                     
-                    [dateFormat1 setDateFormat:@"MMM dd yyyy - h:mm a"];
-                    
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-                    
-                    if(!self.singletonObj.didSelectDate1)
-                    {
-                        cell.lblMenuItemLabel.text = @"Select departure date...";
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Departure:";
-                        cell.lblMenuItem.hidden = NO;
-                        cell.lblMenuItem.text = [dateFormat1 stringFromDate:self.singletonObj.selectedDateIndex1];
-                    }
-                    
-                break;
+        }
                  
-            }
+    }
+    else if(indexPath.section == 1)
+    {
+        if(indexPath.row == 0)
+        {
             
-        break;
-            
-        case 1:
-            
-            switch(indexPath.row)
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+
+            if(self.singletonObj.selectedAirlineIndex2 == -1)
             {
-                case 0:
-                    
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-
-                    if(self.singletonObj.selectedAirlineIndex2 == -1)
-                    {
-                        cell.lblMenuItemLabel.text = @"Select an airline...";
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Airline:";
-                        cell.lblMenuItem.hidden = NO;
-                        [cell.lblMenuItem setFrame:CGRectMake(75, cell.lblMenuItem.frame.origin.y, cell.lblMenuItem.frame.size.width, cell.lblMenuItem.frame.size.height)];
-                        cell.lblMenuItem.text = self.singletonObj.selectedAirlineName2;
-                    }
-                    
-                break;
-                    
-                case 1:
-                    
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-                    
-                    if(self.singletonObj.selectedOriginAirport.length > 0)
-                    {
-                        cell.lblMenuItemLabel.text = @"Origin:";
-                        cell.lblMenuItem.hidden = NO;
-                        [cell.lblMenuItem setFrame:CGRectMake((cell.lblMenuItem.frame.origin.x) - 27, cell.lblMenuItem.frame.origin.y, cell.lblMenuItem.frame.size.width, cell.lblMenuItem.frame.size.height)];
-                        cell.lblMenuItem.text = self.singletonObj.selectedOriginAirport;
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Select origin airport...";
-                    }
-                    
-                break;
-                    
-                case 2:
-                    
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-
-                    if(self.singletonObj.selectedDestinationAirport.length > 0)
-                    {
-                        cell.lblMenuItemLabel.text = @"Destination:";
-                        cell.lblMenuItem.hidden = NO;
-                        [cell.lblMenuItem setFrame:CGRectMake((cell.lblMenuItem.frame.origin.x) + 7, cell.lblMenuItem.frame.origin.y, cell.lblMenuItem.frame.size.width, cell.lblMenuItem.frame.size.height)];
-                        cell.lblMenuItem.text = self.singletonObj.selectedDestinationAirport;
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Select destination airport...";
-                    }
-                    
-                break;
-                    
-                case 3:
-                    
-                    [dateFormat1 setDateFormat:@"MMM dd yyyy - h:mm a"];
-                
-                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-
-                    if(!self.singletonObj.didSelectDate)
-                    {
-                        cell.lblMenuItemLabel.text = @"Select departure date...";
-                    }
-                    else
-                    {
-                        cell.lblMenuItemLabel.text = @"Departure:";
-                        cell.lblMenuItem.hidden = NO;
-                        cell.lblMenuItem.text = [dateFormat1 stringFromDate:self.singletonObj.selectedDateIndex];
-                    }
-                    
-                break;
-                    
+                cell.textLabel.text = @"Select an airline...";
+                cell.detailTextLabel.text = @"";
             }
-            
-        break;
-            
+            else
+            {
+                cell.textLabel.text = @"Airline:";
+                cell.detailTextLabel.text = self.singletonObj.selectedAirlineName2;
+            }
+                    
+        }
+        
+        else if(indexPath.row == 1)
+        {
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+                    
+            if(self.singletonObj.selectedOriginAirport.length > 0)
+            {
+                cell.textLabel.text = @"Origin:";
+                cell.detailTextLabel.text = self.singletonObj.selectedOriginAirport;
+            }
+            else
+            {
+                cell.textLabel.text = @"Select origin airport...";
+                cell.detailTextLabel.text = @"";
+            }
+                    
+        }
+        
+        else if(indexPath.row == 2)
+        {
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+
+            if(self.singletonObj.selectedDestinationAirport.length > 0)
+            {
+                cell.textLabel.text = @"Destination:";
+                cell.detailTextLabel.text = self.singletonObj.selectedDestinationAirport;
+            }
+            else
+            {
+                cell.textLabel.text = @"Select destination airport...";
+                cell.detailTextLabel.text = @"";
+            }
+        }
+        
+        else if(indexPath.row == 3)
+        {
+            [dateFormat1 setDateFormat:@"MMM dd yyyy - h:mm a"];
+                
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+
+            if(!self.singletonObj.didSelectDate)
+            {
+                cell.textLabel.text = @"Select departure date...";
+                cell.detailTextLabel.text = @"";
+            }
+            else
+            {
+                cell.textLabel.text = @"Departure:";
+                cell.detailTextLabel.text = [dateFormat1 stringFromDate:self.singletonObj.selectedDateIndex];
+            }
+        }
+        
     }
     
+    else if(indexPath.section == 2)
+    {
+            if(indexPath.row == 0)
+            {
+                cell.textLabel.text = @"Choose from my favorites...";
+                cell.detailTextLabel.text = @"";
+            }
+    }
+
     return cell;
+
 }
 
 // cell click
@@ -236,7 +225,8 @@
     self.actSheet = [UIActionSheet alloc];
     self.selectedCell = (CheckFlightStatusCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     self.selectedPath = indexPath;
- 
+    MainMenuSingleton *singletonObj = [MainMenuSingleton sharedInstance];
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Flight Status" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     switch(indexPath.section)
@@ -305,9 +295,26 @@
             }
             
         break;
+     
+        case 2:
+            
+            switch(indexPath.row)
+            {
+                case 0:
+                    
+                    singletonObj.selectedFavorites = @"flights";
+                    [self performSegueWithIdentifier:@"segueFaves" sender:self];
+                    
+                break;
+                    
+            }
+            
+        break;
             
     }
 }
+
+#pragma mark - TextField delegate
 
 // text field handler
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -316,45 +323,7 @@
     return YES;
 }
 
-- (IBAction)doCheckStatus:(id)sender
-{
-    // make sure they have specified either a flight number or search parameters
-    
-    CheckFlightStatusCell *cell2 = (CheckFlightStatusCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please specify a flight number or search parameters" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    BOOL shouldSearchFlightNumber = NO;
-    
-    if(self.singletonObj.selectedAirlineIndex1 == -1 || [cell2.inpMenuItem.text isEqualToString:@""] || !self.singletonObj.didSelectDate1)
-    {
-        if(self.singletonObj.selectedAirlineIndex2 == -1 && [self.singletonObj.selectedOriginAirport isEqualToString:@""] && [self.singletonObj.selectedDestinationAirport isEqualToString:@""] && !self.singletonObj.didSelectDate)
-        {
-            [error show];
-            return;
-        }
-        else
-        {
-            shouldSearchFlightNumber = YES;
-        }
-    }
-    
-    if(shouldSearchFlightNumber)
-    {
-        [self performSegueWithIdentifier:@"segueSearchFlightNum" sender:self];
-    }
-    else
-    {
-        self.singletonObj.selectedFlightNo = cell2.inpMenuItem.text;
-        [self performSegueWithIdentifier:@"segueFlightStatus" sender:self];
-    }
-    
-}
-
-// pass data to next view
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-    self.singletonObj.destOrOriginSelected = (selectedRowIndex.row == 1) ? @"Origin" : @"Destination";
-}
+#pragma mark - ActionSheet / PickerView delegate
 
 // actionsheet onLoad
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
@@ -440,7 +409,7 @@
             {
                 if(self.selectedPath.row == 2)
                 {
-                    self.singletonObj.didSelectDate1 = (BOOL *)YES;
+                    self.singletonObj.didSelectDate1 = YES;
                     self.singletonObj.selectedDateIndex1 = [self.datePickerView date];
                 }
                 else
@@ -462,7 +431,7 @@
                 }
                 else if(self.selectedPath.row == 3)
                 {
-                        self.singletonObj.didSelectDate = (BOOL *)YES;
+                        self.singletonObj.didSelectDate = YES;
                         self.singletonObj.selectedDateIndex = [self.datePickerView date];
                 }
             }
@@ -472,13 +441,8 @@
             if(self.selectedPath.row == 0)
             {
                 
-                self.selectedCell.lblMenuItemLabel.text = @"Airline:";
-                self.selectedCell.lblMenuItem.hidden = NO;
-                if(self.selectedCell.lblMenuItem.frame.origin.x != 75)
-                {
-                    [self.selectedCell.lblMenuItem setFrame:CGRectMake((self.selectedCell.lblMenuItem.frame.origin.x) - 25, self.selectedCell.lblMenuItem.frame.origin.y, self.selectedCell.lblMenuItem.frame.size.width, self.selectedCell.lblMenuItem.frame.size.height)];
-                }
-                self.selectedCell.lblMenuItem.text = [self.airlineNames objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+                self.selectedCell.textLabel.text = @"Airline:";
+                self.selectedCell.detailTextLabel.text = [self.airlineNames objectAtIndex:[self.pickerView selectedRowInComponent:0]];
                 
             }
             else if((self.selectedPath.section == 0 && self.selectedPath.row == 2) || (self.selectedPath.section == 1 && self.selectedPath.row == 3))
@@ -486,16 +450,15 @@
                 NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
                 [dateFormat setDateFormat:@"MMM dd yyyy - h:mm a"];
                 
-                self.selectedCell.lblMenuItemLabel.text = @"Departure:";
-                self.selectedCell.lblMenuItem.hidden = NO;
+                self.selectedCell.textLabel.text = @"Departure:";
                 
                 if(self.selectedPath.row == 2)
                 {
-                    self.selectedCell.lblMenuItem.text = [dateFormat stringFromDate:self.singletonObj.selectedDateIndex1];
+                    self.selectedCell.detailTextLabel.text = [dateFormat stringFromDate:self.singletonObj.selectedDateIndex1];
                 }
                 else
                 {
-                    self.selectedCell.lblMenuItem.text = [dateFormat stringFromDate:self.singletonObj.selectedDateIndex];
+                    self.selectedCell.detailTextLabel.text = [dateFormat stringFromDate:self.singletonObj.selectedDateIndex];
                 }
                 
             }
@@ -512,6 +475,79 @@
         break;
             
     }
+}
+
+#pragma mark - View handlers
+
+// onLoad
+- (void)viewDidLoad
+{
+    
+    [super viewDidLoad];
+    
+    self.singletonObj = [CheckFlightStatusSingleton sharedInstance];
+    self.sectionHeaders = [[NSArray alloc] initWithObjects:@"Search by Flight Number", @"Search by Origin or Destination", @"Favorites", nil];
+    
+}
+
+// onAppear
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)doCheckStatus:(id)sender
+{
+    // make sure they have specified either a flight number or search parameters
+    
+    FlightStatusSingleton *singletonObj = [FlightStatusSingleton sharedInstance];
+    CheckFlightStatusCell *cell2 = (CheckFlightStatusCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please specify a flight number or search parameters" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    BOOL shouldSearchFlightNumber = NO;
+    
+    if(self.singletonObj.selectedAirlineIndex1 == -1 || [cell2.inpMenuItem.text isEqualToString:@""] || !self.singletonObj.didSelectDate1)
+    {
+        if(self.singletonObj.selectedAirlineIndex2 == -1 && [self.singletonObj.selectedOriginAirport isEqualToString:@""] && [self.singletonObj.selectedDestinationAirport isEqualToString:@""] && !self.singletonObj.didSelectDate)
+        {
+            [error show];
+            return;
+        }
+        else
+        {
+            shouldSearchFlightNumber = YES;
+        }
+    }
+    
+    if(shouldSearchFlightNumber)
+    {
+        [self performSegueWithIdentifier:@"segueSearchFlightNum" sender:self];
+    }
+    else
+    {
+        singletonObj.didChangeFlight = YES;
+        self.singletonObj.selectedFlightNo = cell2.inpMenuItem.text;
+        [self performSegueWithIdentifier:@"segueFlightStatus" sender:self];
+    }
+    
+}
+
+- (void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickDone:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
+// pass data to next view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+    self.singletonObj.destOrOriginSelected = (selectedRowIndex.row == 1) ? @"Origin" : @"Destination";
 }
 
 - (void)viewDidUnload {

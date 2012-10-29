@@ -17,6 +17,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSArray *values = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:30], @"f", [NSNumber numberWithBool:YES], @"MKPinAnnotationColorPurple", @"MKPinAnnotationColorGreen", [NSNumber numberWithDouble:8046.72], [NSNumber numberWithBool:YES], [NSNumber numberWithBool:YES], nil];
+    NSArray *keys = [[NSArray alloc] initWithObjects:@"refresh_rate", @"temp_units", @"wind_conditions", @"rental_pin_color", @"hotel_pin_color", @"radius", @"show_terminal", @"show_gate", nil];
+    
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
     return YES;
 }
 							
@@ -132,6 +138,59 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+- (NSPersistentStoreCoordinator *)resetPersistentStore {
+    NSError *error = nil;
+    
+    if ([_persistentStoreCoordinator persistentStores] == nil)
+        return [self persistentStoreCoordinator];
+    
+    [self.managedObjectContext reset];
+    [self.managedObjectContext lock];
+    
+    // FIXME: dirty. If there are many stores...
+    NSPersistentStore *store = [[_persistentStoreCoordinator persistentStores] lastObject];
+    
+    if (![_persistentStoreCoordinator removePersistentStore:store error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    // Delete file
+    if ([[NSFileManager defaultManager] fileExistsAtPath:store.URL.path]) {
+        if (![[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+    
+    // Delete the reference to non-existing store
+    _persistentStoreCoordinator = nil;
+    
+    NSPersistentStoreCoordinator *r = [self persistentStoreCoordinator];
+    [self.managedObjectContext unlock];
+    
+    return r;
+}
+
+- (void)resetCoreData
+{
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FlightTrackr.sqlite"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    
+    [fileManager removeItemAtURL:storeURL error:NULL];
+    
+    NSError* error = nil;
+    
+    if([fileManager fileExistsAtPath:[NSString stringWithContentsOfURL:storeURL encoding:NSASCIIStringEncoding error:&error]])
+    {
+        [fileManager removeItemAtURL:storeURL error:nil];
+    }
+    
 }
 
 #pragma mark - Application's Documents directory

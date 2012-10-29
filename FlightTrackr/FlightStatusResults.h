@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CheckFlightStatus.h"
+#import "AppDelegate.h"
 #import "LGViewHUD.h"
 #import "CheckFlightStatusSingleton.h"
+#import "FlightStatusSingleton.h"
 
-@interface FlightStatusResults : UITableViewController
+@interface FlightStatusResults : UITableViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSArray *returnedFlights;
 @property (strong, nonatomic) NSMutableArray *filteredFlights;
-@property (strong, nonatomic) CheckFlightStatus *previousView;
+@property (strong, nonatomic) CheckFlightStatusSingleton *singletonObj;
 @property (strong, nonatomic) NSArray *airlineLogos;
+@property (strong, nonatomic) AppDelegate *appDelegate;
+@property (strong, nonatomic) NSManagedObjectContext *context;
+- (IBAction)btnEdit:(id)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnDoEdit;
 
 - (UIImage*)getAirlineLogo: (NSString*)airline;
 

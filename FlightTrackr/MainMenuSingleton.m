@@ -29,6 +29,7 @@ static MainMenuSingleton *sharedSingletonClass = nil;
     if(self)
     {
         self.selectedItem = -1;
+        self.selectedFavorites = [[NSString alloc] init];
     }
     
     return self;

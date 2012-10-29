@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    self.menuItems = [[NSArray alloc] initWithObjects:@"Check Flight Status", @"Find An Airport", nil];
+    self.menuItems = [[NSArray alloc] initWithObjects:@"Check Flight Status", @"Find An Airport", @"Settings", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,11 +68,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MainMenuSingleton *singletonObj = [MainMenuSingleton sharedInstance];
+    
     switch (indexPath.row)
     {
         case 0:
+            singletonObj.selectedItem = 0;
             self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:nil action:nil];
             [self performSegueWithIdentifier:@"segueCheckFlightStatus" sender:self];
+        break;
+            
+        case 1:
+            singletonObj.selectedItem = 1;
+            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:nil action:nil];
+            [self performSegueWithIdentifier:@"segueFindAirport" sender:self];
+        break;
+        
+        case 2:
+            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:nil action:nil];
+            [self performSegueWithIdentifier:@"segueSettings" sender:self];
         break;
     }
 }

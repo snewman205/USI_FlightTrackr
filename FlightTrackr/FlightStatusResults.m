@@ -30,14 +30,15 @@
     
     [super viewDidLoad];
 
-    self.previousView = [[self.navigationController viewControllers] objectAtIndex:1];
+    self.appDelegate = [[UIApplication sharedApplication] delegate];
+    self.context = [self.appDelegate managedObjectContext];
+    self.singletonObj = [CheckFlightStatusSingleton sharedInstance];
     self.returnedFlights = [[NSArray alloc] init];
     self.filteredFlights = [[NSMutableArray alloc] init];
     self.airlineLogos = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"airtran_logo_sm.jpg"], [UIImage imageNamed:@"american_logo_sm.png"], [UIImage imageNamed:@"delta_logo_sm.png"], [UIImage imageNamed:@"easyjet_logo_sm.gif"], [UIImage imageNamed:@"expressjet_logo_sm.jpg"], [UIImage imageNamed:@"jetblue_logo_sm.png"], [UIImage imageNamed:@"southwest_airlines_logo.png"], [UIImage imageNamed:@"united_logo_sm.png"], [UIImage imageNamed:@"usairways_logo_sm.png"], nil];
+    [self.tableView setScrollEnabled:NO];
     
-    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:83b6981ad05f1772d1a3c4dae8539a65938d44de@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.previousView.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.previousView.singletonObj.selectedDestinationIdent, self.previousView.singletonObj.selectedOriginIdent, self.previousView.singletonObj.selectedAirlineIdent2]];
-    
-    NSLog(@"url - %@", jsonURL);
+    NSURL *jsonURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://snewman205:8aeb39a892fb8d7aa6129e70736bd4071a097430@flightxml.flightaware.com/json/FlightXML2/AirlineFlightSchedules?startDate=%.0f&endDate=%.0f&destination=K%@&origin=K%@&airline=%@", ([self.singletonObj.selectedDateIndex timeIntervalSince1970]-7200), ([self.singletonObj.selectedDateIndex timeIntervalSince1970]+7200), self.singletonObj.selectedDestinationIdent, self.singletonObj.selectedOriginIdent, self.singletonObj.selectedAirlineIdent2]];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     LGViewHUD *hud = [LGViewHUD defaultHUD];
@@ -69,16 +70,26 @@
     {
         NSDictionary *flightObj = [self.returnedFlights objectAtIndex:i];
         
-        if([[[flightObj objectForKey:@"ident"] substringToIndex:3] isEqualToString:self.previousView.singletonObj.selectedAirlineIdent2])
+        if([[[flightObj objectForKey:@"ident"] substringToIndex:3] isEqualToString:self.singletonObj.selectedAirlineIdent2])
         {
             [self.filteredFlights addObject:flightObj];
         }
     }
     
-    [self.tableView reloadData];
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
+    
+    if([self.filteredFlights count] == 0)
+    {
+        [[LGViewHUD defaultHUD] setActivityIndicatorOn:NO];
+        [[LGViewHUD defaultHUD] setTopText:@"No results found"];
+        [[LGViewHUD defaultHUD] setBottomText:@"Please try again"];
+    }
+    else
+    {
+        [self.tableView setScrollEnabled:YES];
+        [[LGViewHUD defaultHUD] hideWithAnimation:HUDAnimationHideFadeOut];
+        [self.tableView reloadData];
+    }
     
 }
 
@@ -86,6 +97,80 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if(editingStyle == UITableViewCellEditingStyleInsert)
+    {
+        
+        NSManagedObject *newFavFlight = [NSEntityDescription insertNewObjectForEntityForName:@"FavoriteFlights" inManagedObjectContext:self.context];
+        NSNumber *departureTime = [NSNumber numberWithDouble:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"departuretime"] doubleValue]];
+        
+        [newFavFlight setValue:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3] forKey:@"flightNo"];
+        [newFavFlight setValue:self.singletonObj.selectedAirlineIdent2 forKey:@"carrierIdent"];
+        [newFavFlight setValue:departureTime forKey:@"departs"];
+        [newFavFlight setValue:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"origin"] substringFromIndex:1] forKey:@"origin"];
+        [newFavFlight setValue:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"destination"] substringFromIndex:1] forKey:@"destination"];
+        
+        NSError *error;
+        
+        if(![self.context save:&error])
+        {
+            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to save favorite" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [error show];
+            return;
+        }
+        else
+        {
+            UIAlertView *msg = [[UIAlertView alloc] initWithTitle:@"Favorite Added" message:[NSString stringWithFormat:@"Flight #%@ has been added to your favorite flights", [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3]] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [msg show];
+        }
+        
+    }
+    else if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSNumber *departureTime = [NSNumber numberWithDouble:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"departuretime"] doubleValue]];
+        NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"FavoriteFlights"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(flightNo=%@) AND (carrierIdent=%@) AND (departs=%@) AND (origin=%@) AND (destination=%@)", [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3],self.singletonObj.selectedAirlineIdent2, departureTime, [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"origin"] substringFromIndex:1], [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"destination"] substringFromIndex:1]];
+        NSError *error = nil;
+        
+        [request setPredicate:predicate];
+        
+        NSArray *results = [self.context executeFetchRequest:request error:&error];
+        
+        [self.context deleteObject:[results objectAtIndex:0]];
+        [self.context save:&error];
+        UIAlertView *msg = [[UIAlertView alloc] initWithTitle:@"Favorite Removed" message:[NSString stringWithFormat:@"Flight #%@ has been removed from your favorite flights", [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3]] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [msg show];
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSNumber *departureTime = [NSNumber numberWithDouble:[[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"departuretime"] doubleValue]];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"FavoriteFlights"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(flightNo=%@) AND (carrierIdent=%@) AND (departs=%@) AND (origin=%@) AND (destination=%@)", [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3],self.singletonObj.selectedAirlineIdent2, departureTime, [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"origin"] substringFromIndex:1], [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"destination"] substringFromIndex:1]];
+    NSError *error = nil;
+    
+    [request setPredicate:predicate];
+    
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    
+    if([results count] > 0)
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+    else
+    {
+        return UITableViewCellEditingStyleInsert;
+    }
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Remove";
 }
 
 #pragma mark - Table view data source
@@ -105,8 +190,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    self.previousView = [[self.navigationController viewControllers] objectAtIndex:1];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
@@ -117,8 +201,8 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"Flight #%@ (%@ to %@)", [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3], [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"origin"] substringFromIndex:1], [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"destination"] substringFromIndex:1]];
     cell.detailTextLabel.numberOfLines = 2;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Departs %@\nOperated by %@", [dateFormat stringFromDate:[self.previousView.singletonObj epochToDate:secondsSinceEpoch]], self.previousView.singletonObj.selectedAirlineName2];
-    cell.imageView.image = [self getAirlineLogo:self.previousView.singletonObj.selectedAirlineName2];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Departs %@\nOperated by %@", [dateFormat stringFromDate:[self.singletonObj epochToDate:secondsSinceEpoch]], self.singletonObj.selectedAirlineName2];
+    cell.imageView.image = [self getAirlineLogo:self.singletonObj.selectedAirlineName2];
     
     return cell;
 }
@@ -127,17 +211,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CheckFlightStatusSingleton *singletonObj = [CheckFlightStatusSingleton sharedInstance];
+    
+    FlightStatusSingleton *singletonObj2 = [FlightStatusSingleton sharedInstance];
     UITableViewCell *selCell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    int extraLen = ([selCell.detailTextLabel.text length] == 45) ? 1 : 0;
+    NSScanner *scanner = [NSScanner scannerWithString:selCell.detailTextLabel.text];
+    NSString *stringPortion = [[NSString alloc] init];
+    [scanner scanUpToString:@"\n" intoString:&stringPortion];
+    int extraLen = ([stringPortion length] == 26) ? 0 : 1;
     [dateFormatter setDateFormat:@"MM/dd/yy - h:mm a"];
     
-    singletonObj.selectedDateIndex = [dateFormatter dateFromString:[selCell.detailTextLabel.text substringWithRange:NSMakeRange(8, (18 + extraLen))]];
-    singletonObj.selectedFlightNo = [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3];
-    singletonObj.didSearchFlight = YES;
+    self.singletonObj.selectedDateIndex = [dateFormatter dateFromString:[selCell.detailTextLabel.text substringWithRange:NSMakeRange(8, (18 + extraLen))]];
     
+    self.singletonObj.selectedFlightNo = [[[self.filteredFlights objectAtIndex:indexPath.row] valueForKey:@"ident"] substringFromIndex:3];
+    self.singletonObj.didSearchFlight = YES;
+    
+    singletonObj2.didChangeFlight = YES;
     [self performSegueWithIdentifier:@"segueFlightStatusInfo" sender:self];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.tableView reloadData];
+}
+
+- (IBAction)btnEdit:(id)sender
+{
+    if(self.tableView.editing)
+    {
+        self.btnDoEdit.title = @"Favorites";
+        [self.tableView setEditing:NO animated:YES];
+    }
+    else
+    {
+        self.btnDoEdit.title = @"Done";
+        [self.tableView setEditing:YES animated:YES];
+    }
 }
 
 - (UIImage*)getAirlineLogo:(NSString *)airline
@@ -186,4 +295,8 @@
     return NULL;
 }
 
+- (void)viewDidUnload {
+    [self setBtnDoEdit:nil];
+    [super viewDidUnload];
+}
 @end

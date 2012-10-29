@@ -240,6 +240,13 @@
     }
     
     AirportSelectorResultsObj *airportObj = [[self.airports objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    MainMenuSingleton *singletonObj = [MainMenuSingleton sharedInstance];
+    
+    if(singletonObj.selectedItem == 1)
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+    }
+    
     cell.textLabel.text = airportObj.name;
     cell.imageView.image = [UIImage imageNamed:@"07-map-marker.png"];
     cell.detailTextLabel.text = [airportObj.city stringByAppendingString:[@", " stringByAppendingString:airportObj.state]];
@@ -299,7 +306,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"segueCheckFlightStatus" sender:self];
+    MainMenuSingleton *singletonObj = [MainMenuSingleton sharedInstance];
+    AirportSelectorResultsObj *airportObj = [[self.airports objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    
+    if(singletonObj.selectedItem == 1)
+    {
+        AirportSingleton *airportSingleton = [AirportSingleton sharedInstance];
+        airportSingleton.airportIdent = airportObj.ident;
+        airportSingleton.airportName = airportObj.name;
+        airportSingleton.airportCity = airportObj.city;
+        airportSingleton.airportState = airportObj.state;
+        airportSingleton.didChangeAirport = YES;
+        
+        [self performSegueWithIdentifier:@"segueAirportDetail" sender:self];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"segueCheckFlightStatus" sender:self];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
