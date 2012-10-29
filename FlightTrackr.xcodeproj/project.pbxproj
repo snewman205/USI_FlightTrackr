@@ -10,6 +10,9 @@
 		0E01FED31639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FED21639A39900C7E1B5 /* DoneCancelNumberPadToolbar.m */; };
 		0E01FEDC163AD58E00C7E1B5 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FEDB163AD58E00C7E1B5 /* Settings.m */; };
 		0E01FEE0163AD60100C7E1B5 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01FEDF163AD60100C7E1B5 /* SettingsCell.m */; };
+		0E01FEEE163ED30500C7E1B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E01FEED163ED30200C7E1B5 /* Default-568h@2x.png */; };
+		0E01FEF1163ED4C100C7E1B5 /* 72-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E01FEF0163ED4C100C7E1B5 /* 72-pin.png */; };
+		0E01FEF3163ED64000C7E1B5 /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E01FEF2163ED64000C7E1B5 /* 103-map.png */; };
 		0E1D40021636EAA5004B66FC /* AirportSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D40011636EAA5004B66FC /* AirportSingleton.m */; };
 		0E1D40051636F0A1004B66FC /* AirportDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D40041636F0A1004B66FC /* AirportDetail.m */; };
 		0E1D401516372A78004B66FC /* StandardMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D401416372A78004B66FC /* StandardMapPoint.m */; };
@@ -89,6 +92,9 @@
 		0E01FEDB163AD58E00C7E1B5 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		0E01FEDE163AD60100C7E1B5 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
 		0E01FEDF163AD60100C7E1B5 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		0E01FEED163ED30200C7E1B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E01FEF0163ED4C100C7E1B5 /* 72-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72-pin.png"; sourceTree = "<group>"; };
+		0E01FEF2163ED64000C7E1B5 /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "103-map.png"; sourceTree = "<group>"; };
 		0E1D40001636EAA5004B66FC /* AirportSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportSingleton.h; sourceTree = "<group>"; };
 		0E1D40011636EAA5004B66FC /* AirportSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportSingleton.m; sourceTree = "<group>"; };
 		0E1D40031636F0A1004B66FC /* AirportDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportDetail.h; sourceTree = "<group>"; };
@@ -341,15 +347,18 @@
 		0EAB5C2E16165434007F1F60 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0E01FEED163ED30200C7E1B5 /* Default-568h@2x.png */,
 				0E9C8D731635D4D800235073 /* thermometer_icon.png */,
 				0E9C8D6F1635CD3C00235073 /* wind_icon.png */,
 				920E09F51632505B00E7BF81 /* rounded-checkmark.png */,
 				920E09F61632505B00E7BF81 /* rounded-checkmark@2x.png */,
+				0E01FEF2163ED64000C7E1B5 /* 103-map.png */,
 				920E09F71632505B00E7BF81 /* rounded-fail.png */,
 				920E09F81632505B00E7BF81 /* rounded-fail@2x.png */,
 				928AA1031634B10B00EB5B63 /* map_marker.png */,
 				929D482A16332035004E1D43 /* 01-refresh.png */,
 				0EA1806A162DEC9B00B5481B /* 73-radar.png */,
+				0E01FEF0163ED4C100C7E1B5 /* 72-pin.png */,
 				0EA1806C162DF25900B5481B /* 93-thermometer.png */,
 				0EA18060162DAA9B00B5481B /* 07-map-marker.png */,
 				0EA18047162CB28D00B5481B /* airtran_logo_sm.jpg */,
@@ -483,6 +492,9 @@
 				0E9C8D741635D4D800235073 /* thermometer_icon.png in Resources */,
 				0E9C8D7A1635D5D700235073 /* Settings.bundle in Resources */,
 				0E9C8D841636485000235073 /* suitcase.png in Resources */,
+				0E01FEEE163ED30500C7E1B5 /* Default-568h@2x.png in Resources */,
+				0E01FEF1163ED4C100C7E1B5 /* 72-pin.png in Resources */,
+				0E01FEF3163ED64000C7E1B5 /* 103-map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController id="DDH-Up-6bQ" customClass="CheckFlightStatus" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="DNx-xU-ARZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jaU-9y-Cea">
@@ -111,7 +111,7 @@
             <objects>
                 <tableViewController id="jlM-pq-TYO" customClass="AirportSelector" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bUO-mH-6ZW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VPa-YT-dQq">
@@ -177,7 +177,7 @@
             <objects>
                 <tableViewController id="wag-iy-Uu9" customClass="AirportDetail" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="kCc-fS-ELS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <mapView key="tableFooterView" hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="BAE-6l-IL3">
@@ -220,7 +220,7 @@
                             <outlet property="delegate" destination="wag-iy-Uu9" id="z5T-73-KNH"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Airport Info" id="kWU-xi-nOi"/>
+                    <tabBarItem key="tabBarItem" title="Airport Info" image="07-map-marker.png" id="kWU-xi-nOi"/>
                     <navigationItem key="navigationItem" id="TDU-nX-Fdx"/>
                     <connections>
                         <outlet property="mapView" destination="BAE-6l-IL3" id="Yf5-vO-eCz"/>
@@ -360,7 +360,7 @@
             <objects>
                 <tableViewController id="lDs-do-ktJ" customClass="FlightStatus" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="gfL-oB-ezp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -416,7 +416,7 @@
             <objects>
                 <viewController title="Live Tracking" id="B1i-4X-FA5" customClass="LiveTracking" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UOo-s7-Bpd">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="RTz-tn-tQ9">
@@ -443,7 +443,7 @@
             <objects>
                 <tableViewController id="zlX-Vd-IBv" customClass="CurrentConditions" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="szf-E7-Bsj">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -489,7 +489,7 @@
             <objects>
                 <viewController id="H5W-cj-Dzd" customClass="BaggageClaim" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWf-UA-ECB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="suitcase.png" id="wv9-wt-ENl">
@@ -550,7 +550,7 @@
             <objects>
                 <tableViewController id="QSC-Vn-OUW" customClass="AirportSelectorResults" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S2X-xc-D6l">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -606,7 +606,7 @@
             <objects>
                 <tableViewController id="G6i-dt-GUq" customClass="FlightStatusResults" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="4SO-cf-2DG">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -660,7 +660,7 @@
             <objects>
                 <tableViewController id="IMT-Gx-ndx" customClass="FavoriteAirports" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="2" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PFs-Qt-Wcw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -812,7 +812,7 @@
             <objects>
                 <viewController id="ZXj-8A-4kh" customClass="AirportLocalPlaces" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uf0-Ue-Efk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YlY-8m-KW9">
@@ -859,7 +859,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Local Places" id="RhJ-sS-KFh"/>
+                    <tabBarItem key="tabBarItem" title="Local Places" image="103-map.png" id="RhJ-sS-KFh"/>
                     <connections>
                         <outlet property="btnHotels" destination="NY2-0m-vyP" id="t6e-0x-d0K"/>
                         <outlet property="btnInfo" destination="hwv-AX-cif" id="Kp4-ZT-JGu"/>
@@ -930,12 +930,133 @@
         </scene>
     </scenes>
     <resources>
+        <image name="07-map-marker.png" width="16" height="26"/>
+        <image name="103-map.png" width="26" height="21"/>
         <image name="37-suitcase.png" width="26" height="22"/>
         <image name="38-airplane.png" width="22" height="24"/>
         <image name="73-radar.png" width="27" height="27"/>
         <image name="93-thermometer.png" width="12" height="28"/>
         <image name="suitcase.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="AirportDetail" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportDetail.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="AirportLocalPlaceDetail" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportLocalPlaceDetail.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lblTTC" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AirportLocalPlaces" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportLocalPlaces.h"/>
+            <relationships>
+                <relationship kind="action" name="barButtonPress:"/>
+                <relationship kind="outlet" name="btnHotels" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnInfo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnRentals" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="AirportLocalPlacesList" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportLocalPlacesList.h"/>
+            <relationships>
+                <relationship kind="action" name="btnDismiss:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="AirportSelector" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelector.h"/>
+            <relationships>
+                <relationship kind="action" name="doAirportSearch:"/>
+                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AirportSelectorCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AirportSelectorResults" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AirportSelectorResults.h"/>
+            <relationships>
+                <relationship kind="action" name="doEdit:"/>
+                <relationship kind="outlet" name="btnEdit" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="BaggageClaim" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaggageClaim.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lblBaggageClaim" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CheckFlightStatus" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatus.h"/>
+            <relationships>
+                <relationship kind="action" name="doCheckStatus:"/>
+                <relationship kind="outlet" name="btnCheckStatus" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CheckFlightStatusCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckFlightStatusCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inpMenuItem" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblMenuItemLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CurrentConditions" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentConditions.h"/>
+        </class>
+        <class className="FavoriteAirports" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteAirports.h"/>
+            <relationships>
+                <relationship kind="action" name="doChangeFavorites:"/>
+                <relationship kind="outlet" name="btnChangeFavorites" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="FlightStatus" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatus.h"/>
+        </class>
+        <class className="FlightStatusResults" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightStatusResults.h"/>
+            <relationships>
+                <relationship kind="action" name="btnEdit:"/>
+                <relationship kind="outlet" name="btnDoEdit" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="LiveTracking" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LiveTracking.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MainMenu" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
+        </class>
+        <class className="MainMenuCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lblMenuItem" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="Settings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Settings.h"/>
+        </class>
+        <class className="SettingsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsCell.h"/>
+            <relationships>
+                <relationship kind="action" name="doReset:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
