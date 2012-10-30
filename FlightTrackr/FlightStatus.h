@@ -30,5 +30,7 @@
 @property (strong,nonatomic) UIActionSheet *actSheet;
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSManagedObjectContext *context;
+@property (nonatomic) BOOL showTerminal;
+@property (nonatomic) BOOL showGate;
 
 @end

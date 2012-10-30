@@ -102,7 +102,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"loading table data");
+    self.showGate = NO;
+    self.showTerminal = NO;
     self.actSheet = [UIActionSheet alloc];
     [self.tabBarController.navigationItem setTitle:@"Flight Status"];
     [self loadTableData];
@@ -234,13 +235,15 @@
     {
         int numRows = 3;
         
-        if([[NSUserDefaults standardUserDefaults] valueForKey:@"show_terminal"])
+        if([[NSUserDefaults standardUserDefaults] boolForKey:@"show_terminal"])
         {
-            numRows = 4;
+            self.showTerminal = YES;
+            numRows = ([[NSUserDefaults standardUserDefaults] boolForKey:@"show_gate"]) ? 5 : 4;
         }
-        if([[NSUserDefaults standardUserDefaults] valueForKey:@"show_gate"])
+        if([[NSUserDefaults standardUserDefaults] boolForKey:@"show_gate"])
         {
-            numRows = 5;
+            self.showGate = YES;
+            numRows = ([[NSUserDefaults standardUserDefaults] boolForKey:@"show_terminal"]) ? 5 : 4;
         }
         
         switch(section)
@@ -277,6 +280,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    int index1 = (self.showTerminal) ? ((self.showGate) ? 3 : 2) : ((self.showGate) ? 2 : 1);
+    int index2 = (self.showTerminal) ? ((self.showGate) ? 4 : 3) : ((self.showGate) ? 3 : 2);
+    int terminalIndex = (self.showTerminal) ? 1 : -1;
+    int gateIndex = (self.showGate) ? ((!self.showTerminal) ? 1 : 2) : -1;
+    
     if(indexPath.section == 0)
     {
         
@@ -300,11 +308,19 @@
             cell.textLabel.text = @"Arrived";
             [[self.tabBarController.tabBar.items objectAtIndex:1] setEnabled:NO];
         }
+        else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] == -1)
+        {
+            [cell.textLabel setTextColor:[UIColor redColor]];
+            cell.textLabel.text = @"CANCELLED";
+            for(UITabBarItem *item in [[self.tabBarController tabBar] items])
+                [item setEnabled:NO];
+        }
         else if([[NSDate date] timeIntervalSince1970] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
         {
             [cell.textLabel setTextColor:[UIColor redColor]];
             cell.textLabel.text = @"Delayed";
             [[self.tabBarController.tabBar.items objectAtIndex:1] setEnabled:NO];
+            NSLog(@"actual departure - %@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"]);
         }
         else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] == 0)
         {
@@ -332,6 +348,7 @@
         else
         {
             cell1.textLabel.text = @"Aircraft Type:";
+            ([self.aircraftMfg isEqualToString:@""] || [self.aircraftType isEqualToString:@""]) ? self.aircraftMfg = @"Unavailable" : NULL;
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.aircraftMfg, self.aircraftType];
         }
         
@@ -351,19 +368,19 @@
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"originName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"originCity"]];
         }
         
-        else if(indexPath.row == 1)
+        else if(indexPath.row == terminalIndex && self.showTerminal)
         {
             cell1.textLabel.text = @"Terminal:";
             cell1.detailTextLabel.text = (![self.origTerm isEqualToString:@""]) ? self.origTerm : @"Unavailable";
         }
         
-        else if(indexPath.row == 2)
+        else if(indexPath.row == gateIndex && self.showGate)
         {
             cell1.textLabel.text = @"Gate:";
-            cell1.detailTextLabel.text = (![self.origGate isEqualToString:@""]) ? self.origGate : @"Unavailable";
+            cell1.detailTextLabel.text = (![self.origGate isEqualToString:@""] && ![self.origGate isEqualToString:@"XLD"]) ? self.origGate : @"Unavailable";
         }
         
-        else if(indexPath.row == 3)
+        else if(indexPath.row == index1)
         {
         
             double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue] + 3600;
@@ -372,11 +389,11 @@
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
                     
             cell1.textLabel.text = @"Est. Departure:";
-            cell1.detailTextLabel.text = [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]];
+            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] != -1) ? [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]] : @"Unavailable";
                         
         }
     
-        else if(indexPath.row == 4)
+        else if(indexPath.row == index2)
         {
             
             double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] + 3600;
@@ -385,7 +402,7 @@
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
                 
             cell1.textLabel.text = @"Actual Departure:";
-            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0) ? [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]] : @"Unavailable";
+            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] > 0 && [[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] != -1) ? [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]] : @"Unavailable";
                 
         }
             
@@ -405,19 +422,19 @@
             cell1.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationName"], [[self.filteredFlights objectAtIndex:0] valueForKey:@"destinationCity"]];
         }
         
-        else if(indexPath.row == 1)
+        else if(indexPath.row == terminalIndex && self.showTerminal)
         {
             cell1.textLabel.text = @"Terminal:";
             cell1.detailTextLabel.text = (![self.destTerm isEqualToString:@""]) ? self.destTerm : @"Unavailable";
         }
         
-        else if(indexPath.row == 2)
+        else if(indexPath.row == gateIndex && self.showGate)
         {
             cell1.textLabel.text = @"Gate:";
-            cell1.detailTextLabel.text = (![self.destGate isEqualToString:@""]) ? self.destGate : @"Unavailable";
+            cell1.detailTextLabel.text = (![self.destGate isEqualToString:@""] && ![self.destGate isEqualToString:@"XLD"]) ? self.destGate : @"Unavailable";
         }
         
-        else if(indexPath.row == 3)
+        else if(indexPath.row == index1)
         {
             
             double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"estimatedarrivaltime"] doubleValue] + 3600;
@@ -426,11 +443,11 @@
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
             
             cell1.textLabel.text = @"Est. Arrival:";
-            cell1.detailTextLabel.text = [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]];
+            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"estimatedarrivaltime"] doubleValue] == -1) ? @"Unavailable" : [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]];
             
         }
         
-        else if(indexPath.row == 4)
+        else if(indexPath.row == index2)
         {
             
             double secondsSinceEpoch = [[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] + 3600;
@@ -439,7 +456,7 @@
             [dateFormat setDateFormat:@"MMM dd, yyyy\nh:mm a"];
             
             cell1.textLabel.text = @"Actual Arrival:";
-            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] > 0) ? [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]] : @"Unavailable";
+            cell1.detailTextLabel.text = ([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] > 0 && [[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualarrivaltime"] doubleValue] != -1) ? [dateFormat stringFromDate:[self.singletonObj1 epochToDate:secondsSinceEpoch]] : @"Unavailable";
             
         }
         
