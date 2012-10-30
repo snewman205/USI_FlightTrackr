@@ -499,14 +499,13 @@
         singletonObj.selectedDateIndex1 = [dateFormatter dateFromString:[selCell.detailTextLabel.text substringWithRange:NSMakeRange(8, (18 + extraLen))]];
         singletonObj.selectedAirlineIdent1 = flightObj.carrierIdent;
         singletonObj.selectedFlightNo = flightObj.flightNo;
-        NSLog(@"got to segue");
+
         [self performSegueWithIdentifier:@"segueFromFavAirports" sender:self];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepping segue");
     if(self.loadingAirports)
     {
         CheckFlightStatus *previousView = [[self.navigationController viewControllers] objectAtIndex:1];
@@ -515,7 +514,6 @@
     
         if([segue.identifier isEqualToString:@"segueCheckFlightStatus1"])
         {
-            NSLog(@"doing stuff");
             if([previousView.singletonObj.destOrOriginSelected isEqualToString:@"Origin"])
             {
                 previousView.singletonObj.selectedOriginIdent = airportObj.ident;

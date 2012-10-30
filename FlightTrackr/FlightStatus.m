@@ -29,8 +29,6 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"loading view");
-    
     self.sectionHeaders = [NSArray arrayWithObjects:@"Status", @"", @"", @"", nil];
     self.filteredFlights = [[NSMutableArray alloc] init];
     self.aircraftMfg = [[NSString alloc] init];
@@ -320,7 +318,6 @@
             [cell.textLabel setTextColor:[UIColor redColor]];
             cell.textLabel.text = @"Delayed";
             [[self.tabBarController.tabBar.items objectAtIndex:1] setEnabled:NO];
-            NSLog(@"actual departure - %@", [[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"]);
         }
         else if([[[self.filteredFlights objectAtIndex:0] valueForKey:@"actualdeparturetime"] doubleValue] == 0)
         {
