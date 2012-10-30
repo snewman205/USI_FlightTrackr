@@ -310,8 +310,7 @@
         {
             [cell.textLabel setTextColor:[UIColor redColor]];
             cell.textLabel.text = @"CANCELLED";
-            for(UITabBarItem *item in [[self.tabBarController tabBar] items])
-                [item setEnabled:NO];
+            [[self.tabBarController.tabBar.items objectAtIndex:1] setEnabled:NO];
         }
         else if([[NSDate date] timeIntervalSince1970] > [[[self.filteredFlights objectAtIndex:0] valueForKey:@"filed_departuretime"] doubleValue])
         {
