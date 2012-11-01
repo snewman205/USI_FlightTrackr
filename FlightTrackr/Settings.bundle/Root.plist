@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Flight Status</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Terminal Information</string>
+			<key>Key</key>
+			<string>show_terminal</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Gate Information</string>
+			<key>Key</key>
+			<string>show_gate</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Live Tracking</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Refresh Rate</string>
+			<key>Key</key>
+			<string>refresh_rate</string>
+			<key>DefaultValue</key>
+			<string>30</string>
+			<key>Titles</key>
+			<array>
+				<string>15 seconds</string>
+				<string>30 seconds</string>
+				<string>45 seconds</string>
+				<string>1 minute</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>15</string>
+				<string>30</string>
+				<string>45</string>
+				<string>60</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Local Conditions</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Units</string>
+			<key>Key</key>
+			<string>temp_units</string>
+			<key>DefaultValue</key>
+			<string>f</string>
+			<key>Titles</key>
+			<array>
+				<string>Fahrenheit (°F)</string>
+				<string>Celsius (°C)</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>f</string>
+				<string>c</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Wind Conditions</string>
+			<key>Key</key>
+			<string>wind_conditions</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Local Places</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Search Radius</string>
+			<key>Key</key>
+			<string>radius</string>
+			<key>DefaultValue</key>
+			<real>8046.72</real>
+			<key>Titles</key>
+			<array>
+				<string>1 mile</string>
+				<string>5 miles</string>
+				<string>10 miles</string>
+				<string>15 miles</string>
+				<string>20 miles</string>
+				<string>25 miles</string>
+				<string>30 miles</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<real>1609.34</real>
+				<real>8046.72</real>
+				<real>16093.4</real>
+				<real>24140.2</real>
+				<real>32186.9</real>
+				<real>40233.6</real>
+				<real>48280.3</real>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Hotel Pin Color</string>
+			<key>Key</key>
+			<string>hotel_pin_color</string>
+			<key>DefaultValue</key>
+			<string>MKPinAnnotationColorGreen</string>
+			<key>Titles</key>
+			<array>
+				<string>Green</string>
+				<string>Purple</string>
+				<string>Red</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>MKPinAnnotationColorGreen</string>
+				<string>MKPinAnnotationColorPurple</string>
+				<string>MKPinAnnotationColorRed</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Car Rental Pin Color</string>
+			<key>Key</key>
+			<string>rental_pin_color</string>
+			<key>DefaultValue</key>
+			<string>MKPinAnnotationColorPurple</string>
+			<key>Titles</key>
+			<array>
+				<string>Green</string>
+				<string>Purple</string>
+				<string>Red</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>MKPinAnnotationColorGreen</string>
+				<string>MKPinAnnotationColorPurple</string>
+				<string>MKPinAnnotationColorRed</string>
+			</array>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
