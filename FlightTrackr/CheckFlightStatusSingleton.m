@@ -53,7 +53,7 @@ static CheckFlightStatusSingleton *sharedSingletonClass = nil;
 
 - (NSDate*)epochToDate:(double)epoch
 {
-    double secondsSinceEpoch = epoch - 3600;
+    double secondsSinceEpoch = epoch;
     return [NSDate dateWithTimeIntervalSince1970:secondsSinceEpoch];
 }
 
